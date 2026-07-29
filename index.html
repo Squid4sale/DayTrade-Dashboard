@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>DayTrade Dashboard</title>
+<meta name="description" content="Track prop-firm payouts, fees, live accounts, and taxes across all your firms.">
+<!-- Home-screen app behavior -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DayTrade">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0B0D0F">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMEIwRDBGIi8+PHJlY3QgeD0iMTgiIHk9IjE4IiB3aWR0aD0iMTQ0IiBoZWlnaHQ9IjE0NCIgcng9IjI4IiBmaWxsPSJub25lIiBzdHJva2U9IiMyREQ0QkYiIHN0cm9rZS13aWR0aD0iNCIvPjx0ZXh0IHg9IjkwIiB5PSIxMTgiIGZvbnQtZmFtaWx5PSJTcGFjZSBHcm90ZXNrLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzJERDRCRiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RFQ8L3RleHQ+PC9zdmc+">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMEIwRDBGIi8+PHJlY3QgeD0iMTgiIHk9IjE4IiB3aWR0aD0iMTQ0IiBoZWlnaHQ9IjE0NCIgcng9IjI4IiBmaWxsPSJub25lIiBzdHJva2U9IiMyREQ0QkYiIHN0cm9rZS13aWR0aD0iNCIvPjx0ZXh0IHg9IjkwIiB5PSIxMTgiIGZvbnQtZmFtaWx5PSJTcGFjZSBHcm90ZXNrLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzJERDRCRiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RFQ8L3RleHQ+PC9zdmc+">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiRGF5VHJhZGUgRGFzaGJvYXJkIiwic2hvcnRfbmFtZSI6IkRheVRyYWRlIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBCMEQwRiIsInRoZW1lX2NvbG9yIjoiIzBCMEQwRiIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9EQWdNVGd3SWo0OGNtVmpkQ0IzYVdSMGFEMGlNVGd3SWlCb1pXbG5hSFE5SWpFNE1DSWdjbmc5SWpRd0lpQm1hV3hzUFNJak1FSXdSREJHSWk4K1BISmxZM1FnZUQwaU1UZ2lJSGs5SWpFNElpQjNhV1IwYUQwaU1UUTBJaUJvWldsbmFIUTlJakUwTkNJZ2NuZzlJakk0SWlCbWFXeHNQU0p1YjI1bElpQnpkSEp2YTJVOUlpTXlSRVEwUWtZaUlITjBjbTlyWlMxM2FXUjBhRDBpTkNJdlBqeDBaWGgwSUhnOUlqa3dJaUI1UFNJeE1UZ2lJR1p2Ym5RdFptRnRhV3g1UFNKVGNHRmpaU0JIY205MFpYTnJMQ0JCY21saGJDd2djMkZ1Y3kxelpYSnBaaUlnWm05dWRDMXphWHBsUFNJNE1pSWdabTl1ZEMxM1pXbG5hSFE5SWpjd01DSWdabWxzYkQwaUl6SkVSRFJDUmlJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSStSRlE4TDNSbGVIUStQQzl6ZG1jKyIsInNpemVzIjoiYW55IiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
+<style>
+  html,body{margin:0; padding:0; background:#0B0D0F;}
+  /* Give the app breathing room on phones with notches */
+  body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+</style>
+</head>
+<body>
+<!-- DayTrade Dashboard — Payout & Fee Ledger, Prop Firm Tracker -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  #topstep-root[data-theme="dark"]{
+    --bg:#0B0D0F; --panel:#14171B; --panel-2:#1B1F23; --border:#272C31;
+    --text:#E9E7E2; --muted:#8B9298; --muted-2:#5D6469;
+    --accent:#D9A24B; --accent-soft:#3A301E;
+    --profit:#3FB68B; --profit-soft:#12261F;
+    --loss:#E2555A; --loss-soft:#2A1618;
+    --fee-reset:#C9444C; --fee-reset-soft:#31171A;
+    --fee-sub:#E06A72; --fee-sub-soft:#361B1E;
+    --fee-activation:#A82830; --fee-activation-soft:#2A1214;
+    --live:#2DD4BF;
+    --tape:#171B1F;
+    --shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+  }
+  #topstep-root[data-theme="light"]{
+    --bg:#EEF2F0; --panel:#FFFFFF; --panel-2:#F5F7F6; --border:#DCE2DF;
+    --text:#151A18; --muted:#5B6461; --muted-2:#8A928E;
+    --accent:#B9812E; --accent-soft:#FBEEDA;
+    --profit:#1F8F68; --profit-soft:#E4F5EE;
+    --loss:#C7373E; --loss-soft:#FBE7E7;
+    --fee-reset:#9E2830; --fee-reset-soft:#F8E3E4;
+    --fee-sub:#C24850; --fee-sub-soft:#FAEAEB;
+    --fee-activation:#701418; --fee-activation-soft:#F3DDDE;
+    --live:#0D9488;
+    --tape:#F7F8F6;
+    --shadow: 0 1px 0 rgba(0,0,0,0.02) inset;
+  }
+  #topstep-root{
+    background:var(--bg); color:var(--text);
+    font-family:'Inter',sans-serif;
+    padding:28px; border-radius:14px;
+    max-width:1180px; margin:0 auto;
+    transition:background .25s,color .25s;
+  }
+  #topstep-root *{box-sizing:border-box;}
+  .mono{font-family:'IBM Plex Mono',monospace; font-variant-numeric: tabular-nums;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+
+  /* header */
+  .ts-header{display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:20px; gap:16px; flex-wrap:wrap;}
+  .ts-eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:6px;}
+  .ts-title{font-size:26px; font-weight:700; letter-spacing:-.01em;}
+  .ts-sub{color:var(--muted); font-size:13px; margin-top:4px;}
+  .ts-controls{display:flex; gap:8px; align-items:center;}
+  .ts-btn{
+    background:linear-gradient(180deg, var(--panel-2), var(--panel));
+    border:1px solid var(--border); border-bottom-width:3px; color:var(--text);
+    padding:9px 16px; border-radius:9px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit;
+    box-shadow:0 2px 5px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+    transition:border-color .15s, transform .08s, box-shadow .15s, filter .15s;
+  }
+  .ts-btn:hover{border-color:var(--accent); filter:brightness(1.12); transform:translateY(-1px);
+    box-shadow:0 4px 9px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);}
+  .ts-btn:active{transform:translateY(1px); border-bottom-width:1px; margin-bottom:2px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.3);}
+  .ts-btn:disabled{transform:none; box-shadow:none; filter:none;}
+  .ts-btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .ts-icon-btn{width:36px; height:36px; padding:0; display:flex; align-items:center; justify-content:center;}
+
+  /* ticker strip */
+  .ts-ticker{
+    display:grid; grid-template-columns:repeat(5,1fr);
+    background:var(--panel); border:1px solid var(--border); border-radius:12px;
+    margin-bottom:14px; overflow:hidden; box-shadow:var(--shadow);
+  }
+  .ts-cell{padding:16px 18px; border-right:1px solid var(--border); position:relative;}
+  .ts-cell:last-child{border-right:none;}
+  .ts-cell-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted-2); margin-bottom:6px;}
+  .ts-cell-value{font-size:19px; font-weight:600;}
+  .ts-cell-value.pos{color:var(--profit);}
+  .ts-cell-value.neg{color:var(--loss);}
+  .ts-cell-value.fee{color:var(--fee-reset);}
+  .ts-cell-value.live{color:var(--live);}
+  .ts-ticker.six{grid-template-columns:repeat(6,1fr);}
+
+  /* fee ticker */
+  .ts-ticker-fees{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    background:var(--panel); border:1px solid var(--border); border-radius:12px;
+    margin-bottom:22px; overflow:hidden;
+  }
+
+  /* layout */
+  .ts-grid{display:grid; grid-template-columns:340px 1fr; gap:20px; align-items:start;}
+  .ts-card{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:20px; box-shadow:var(--shadow);}
+  .ts-card + .ts-card{margin-top:20px;}
+  .ts-card-title{font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:14px;}
+  .ts-collapse-head{display:flex; align-items:center; justify-content:space-between; cursor:pointer; user-select:none; margin-bottom:0;}
+  .ts-collapse-head .ts-card-title{margin-bottom:0;}
+  .ts-collapse-chevron{color:var(--muted-2); font-size:13px; transition:transform .2s; margin-left:8px;}
+  .ts-collapse-head.open .ts-collapse-chevron{transform:rotate(90deg);}
+  .ts-collapse-body{margin-top:14px;}
+  .ts-collapse-body[hidden]{display:none;}
+  .ts-collapse-sub{font-size:11px; color:var(--muted-2); font-weight:400; text-transform:none; letter-spacing:0; margin-left:8px;}
+
+  /* form */
+  .ts-field{margin-bottom:14px;}
+  .ts-field label{display:block; font-size:12px; color:var(--muted); margin-bottom:6px;}
+  .ts-field input{
+    width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text);
+    padding:9px 10px; border-radius:8px; font-size:14px; font-family:'IBM Plex Mono',monospace;
+  }
+  .ts-field input:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
+  .ts-field select{
+    width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text);
+    padding:9px 10px; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif;
+  }
+  .ts-field select:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
+  .ts-submit{
+    width:100%; background:linear-gradient(180deg, #8BE84B, #64C22B); color:#0E2A05; font-weight:700; 
+    border:1px solid #4EA324; border-bottom:3px solid #3D8A1A;
+    padding:12px; border-radius:9px; cursor:pointer; font-size:14px; font-family:'Inter',sans-serif;
+    margin-top:4px; letter-spacing:.01em;
+    box-shadow:0 3px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+    transition:filter .15s, transform .08s, box-shadow .15s;
+    text-shadow:0 1px 0 rgba(255,255,255,0.25);
+  }
+  .ts-submit.fee-submit{
+    background:linear-gradient(180deg, #F05A4F, #D02E23); color:#FFF;
+    border:1px solid #A8231B; border-bottom:3px solid #8A1B14;
+    text-shadow:0 1px 1px rgba(0,0,0,0.3);
+  }
+  .ts-submit:hover{filter:brightness(1.07); transform:translateY(-1px);
+    box-shadow:0 5px 10px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.35);}
+  .ts-submit:active{transform:translateY(1px); border-bottom-width:1px; margin-bottom:6px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.3);}
+  .ts-hint{font-size:11px; color:var(--muted-2); margin-top:8px;}
+
+  /* card accents */
+  .ts-card.payout-card{border-left:3px solid var(--profit);}
+  .ts-card.fee-card{border-left:3px solid var(--fee-sub);}
+
+  /* fee ledger rows */
+  .ts-tape-row.fee-row{grid-template-columns:auto 1fr auto; gap:10px; align-items:center; border-left:3px solid var(--fee-reset);}
+  .ts-tape-row.fee-row.type-reset{border-left-color:var(--fee-reset);}
+  .ts-tape-row.fee-row.type-subscription{border-left-color:var(--fee-sub);}
+  .ts-tape-row.fee-row.type-activation{border-left-color:var(--fee-activation);}
+  .ts-fee-type-label{font-size:11px; padding:2px 8px; border-radius:20px; white-space:nowrap;}
+  .ts-fee-type-label.type-reset{background:var(--fee-reset-soft); color:var(--fee-reset);}
+  .ts-fee-type-label.type-subscription{background:var(--fee-sub-soft); color:var(--fee-sub);}
+  .ts-fee-type-label.type-activation{background:var(--fee-activation-soft); color:var(--fee-activation);}
+
+  /* charts row */
+  .ts-charts-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .ts-chart-card{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow);}
+  .ts-chart-title{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:4px;}
+  .ts-chart-total{font-size:15px; font-weight:600; margin-bottom:10px; line-height:1.3;}
+  .ts-chart-wrap{position:relative; height:150px;}
+  .ts-chart-empty-ring{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;}
+  .ts-chart-empty-overlay{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    color:var(--muted-2); font-size:11.5px; text-align:center; padding:0 20px; pointer-events:none;
+  }
+  .ts-chart-empty{
+    display:flex; align-items:center; justify-content:center; height:150px; color:var(--muted-2); font-size:12px; text-align:center; padding:0 10px;
+  }
+  .ts-chart-labels{margin-top:10px; display:flex; flex-direction:column; gap:5px; max-height:110px; overflow-y:auto;}
+  .ts-legend-row{display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--muted);}
+  .ts-dot{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
+  .ts-legend-amt{margin-left:auto; font-family:'IBM Plex Mono',monospace; color:var(--text);}
+  .ts-legend-heading{font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted-2); margin-top:6px;}
+  .ts-legend-heading:first-child{margin-top:0;}
+  .ts-color-key{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:14px; font-size:11px; color:var(--muted);}
+  .ts-color-key span{display:flex; align-items:center; gap:6px;}
+
+  /* mode toggle */
+  .ts-mode-toggle{display:flex; gap:6px; margin-bottom:16px;}
+  .ts-mode-btn{
+    flex:1; background:var(--panel-2); border:1px solid var(--border); color:var(--muted);
+    padding:7px; border-radius:7px; font-size:11.5px; cursor:pointer; font-family:'Inter',sans-serif;
+  }
+  .ts-mode-btn.active{background:var(--accent-soft); color:var(--accent); border-color:var(--accent);}
+
+  /* ledger tape */
+  .ts-tape{background:var(--tape); border:1px solid var(--border); border-radius:8px; overflow:hidden;}
+  .ts-tape-row{
+    display:grid; grid-template-columns:1fr auto; align-items:baseline;
+    padding:10px 14px; border-bottom:1px dashed var(--border); font-size:13px;
+  }
+  .ts-tape-row:last-child{border-bottom:none;}
+  .ts-tape-date{color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:12px;}
+  .ts-tape-amt{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px;}
+  .ts-tape-amt.pos{color:var(--profit);}
+  .ts-tape-amt.neg{color:var(--loss);}
+  .ts-tape-torn{
+    height:10px; background:
+      linear-gradient(135deg, var(--bg) 25%, transparent 25%) 0 0,
+      linear-gradient(225deg, var(--bg) 25%, transparent 25%) 0 0;
+    background-size:12px 12px; background-color:var(--tape);
+  }
+  .ts-empty-state{padding:24px 14px; text-align:center; color:var(--muted-2); font-size:13px;}
+
+  /* monthly chart tooltip */
+  #ts-monthly-bars{position:relative;}
+  .ts-tip{
+    position:absolute; pointer-events:none; z-index:10;
+    background:#FFFFFF; border:1px solid #C9CFCC; border-radius:6px;
+    padding:9px 12px; font-size:12.5px; line-height:1.5; color:#1A1F1D;
+    box-shadow:0 4px 14px rgba(0,0,0,0.28);
+    white-space:nowrap; opacity:0; transition:opacity .1s;
+  }
+  .ts-tip.visible{opacity:1;}
+  .ts-tip .t-title{font-weight:700; margin-bottom:2px; font-family:'Inter',sans-serif; color:#1A1F1D;}
+  .ts-tip .t-row{display:flex; justify-content:space-between; gap:16px; color:#3A423F;}
+  .ts-tip .t-row .mono{font-size:12px;}
+  #ts-monthly-bars rect{cursor:pointer;}
+  #ts-monthly-bars rect:hover{filter:brightness(1.2);}
+  #ts-monthly-bars circle{cursor:pointer;}
+
+  /* footer */
+  .ts-footer{display:flex; justify-content:space-between; align-items:center; margin-top:20px; gap:12px; flex-wrap:wrap;}
+  .ts-footer-left{display:flex; gap:8px;}
+  .ts-status{font-size:11px; color:var(--muted-2);}
+
+  @media (max-width:820px){
+    .ts-grid{grid-template-columns:1fr;}
+    .ts-charts-row{grid-template-columns:1fr;}
+    .ts-ticker{grid-template-columns:repeat(2,1fr);}
+    .ts-ticker.six{grid-template-columns:repeat(2,1fr);}
+    .ts-ticker-fees{grid-template-columns:repeat(2,1fr);}
+    .ts-cell:nth-child(2n){border-right:none;}
+    .ts-cell{border-bottom:1px solid var(--border);}
+  }
+</style>
+
+<div id="topstep-root" data-theme="dark">
+  <div class="ts-header">
+    <div>
+      <div class="ts-eyebrow">Payout &amp; Fee Ledger · Prop Firm Tracker</div>
+      <div class="ts-title display">DayTrade Dashboard</div>
+      <div class="ts-sub">Log payouts and fees, see what's coming in against what it's costing you.</div>
+    </div>
+    <div class="ts-controls">
+      <button class="ts-btn" id="ts-theme-toggle" title="Toggle theme" aria-label="Toggle dark/light theme">☀️ Light Mode</button>
+      <button class="ts-btn" id="ts-export-btn">Export CSV</button>
+      <button class="ts-btn" id="ts-reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <div class="ts-ticker" id="ts-ticker"></div>
+  <div class="ts-ticker-fees" id="ts-ticker-fees"></div>
+  <div class="ts-ticker" id="ts-ticker-live" style="margin-bottom:22px; display:none;"></div>
+
+  <datalist id="ts-firm-list"></datalist>
+  <datalist id="ts-live-firm-list"></datalist>
+
+  <div id="ts-firm-filter-bar" style="display:none; align-items:center; gap:10px; margin-bottom:22px; flex-wrap:wrap;">
+    <span style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em;">Viewing firm:</span>
+    <div id="ts-firm-chips" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+  </div>
+
+  <div class="ts-card" id="ts-tax-card" style="margin-bottom:22px; border-left:3px solid var(--accent);">
+    <div class="ts-collapse-head" data-target="ts-tax-body">
+      <div class="ts-card-title">Tax Summary <span class="ts-collapse-sub">tap to expand</span></div>
+      <span class="ts-collapse-chevron">&#9654;</span>
+    </div>
+    <div class="ts-collapse-body" id="ts-tax-body" hidden>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+        <label for="ts-tax-year" style="font-size:12px; color:var(--muted);">Tax year</label>
+        <select id="ts-tax-year" style="background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:7px 10px; border-radius:8px; font-size:13px; font-family:'Inter',sans-serif;"></select>
+        <button class="ts-btn" id="ts-tax-export-btn" style="margin-left:auto;">Download CPA CSV</button>
+      </div>
+      <div id="ts-tax-content"></div>
+      <div class="ts-hint" style="margin-top:12px; line-height:1.5;">
+        These figures are an organized starting point, not tax advice. Prop-firm payouts are typically self-employment income (1099-NEC) with fees as deductible business expenses; regulated-futures trading is typically taxed under IRC §1256 (60/40) on Form 6781. Confirm everything with a licensed tax professional.
+      </div>
+    </div>
+  </div>
+
+  <div class="ts-grid">
+    <div>
+      <div class="ts-card payout-card">
+        <div class="ts-card-title">Log a Payout</div>
+        <div class="ts-field">
+          <label for="ts-payout-date">Date</label>
+          <input type="date" id="ts-payout-date">
+        </div>
+        <div class="ts-field">
+          <label for="ts-payout-firm">Prop Firm</label>
+          <input list="ts-firm-list" id="ts-payout-firm" placeholder="e.g. Topstep, Apex, MFFU" style="width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:9px 10px; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif;">
+        </div>
+        <div class="ts-field">
+          <label for="ts-payout-amount">Payout Amount ($)</label>
+          <input type="number" id="ts-payout-amount" step="0.01" placeholder="e.g. 1250.00">
+        </div>
+        <button class="ts-submit" id="ts-payout-submit-btn">Log Payout</button>
+        <div class="ts-hint" id="ts-payout-form-msg">Date auto-fills to today after each entry.</div>
+      </div>
+
+      <div class="ts-card payout-card" id="ts-payout-import-card">
+        <div class="ts-collapse-head" data-target="ts-payout-import-body">
+          <div class="ts-card-title">Import Payouts <span class="ts-collapse-sub">tap to expand</span></div>
+          <span class="ts-collapse-chevron">&#9654;</span>
+        </div>
+        <div class="ts-collapse-body" id="ts-payout-import-body" hidden>
+          <div class="ts-hint" style="margin-top:0; margin-bottom:12px;">Two finalized Express payouts you provided, both dated 6/10/2026.</div>
+          <button class="ts-btn" id="ts-payout-import-btn" style="width:100%;">Import 2 payouts ($3,000.00)</button>
+          <div class="ts-hint" id="ts-payout-import-msg"></div>
+          <button class="ts-btn" id="ts-payout-import2-btn" style="width:100%; margin-top:10px;">Import 3 payouts from 7/9 ($4,680.00)</button>
+          <div class="ts-hint" id="ts-payout-import2-msg"></div>
+          <button class="ts-btn" id="ts-payout-import3-btn" style="width:100%; margin-top:10px;">Import funding payout: $1,509 (7/9)</button>
+          <div class="ts-hint" id="ts-payout-import3-msg"></div>
+        </div>
+      </div>
+
+      <div class="ts-card fee-card">
+        <div class="ts-card-title">Log a Fee</div>
+        <div class="ts-field">
+          <label for="ts-fee-date">Date</label>
+          <input type="date" id="ts-fee-date">
+        </div>
+        <div class="ts-field">
+          <label for="ts-fee-firm">Prop Firm</label>
+          <input list="ts-firm-list" id="ts-fee-firm" placeholder="e.g. Topstep, Apex, MFFU" style="width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:9px 10px; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif;">
+        </div>
+        <div class="ts-field">
+          <label for="ts-fee-type">Fee Type</label>
+          <select id="ts-fee-type">
+            <option value="reset">Reset Fee</option>
+            <option value="subscription">Subscription Fee</option>
+            <option value="activation">Activation Fee</option>
+          </select>
+        </div>
+        <div class="ts-field">
+          <label for="ts-fee-amount">Amount ($)</label>
+          <input type="number" id="ts-fee-amount" step="0.01" placeholder="e.g. 99.00">
+        </div>
+        <button class="ts-submit fee-submit" id="ts-fee-submit-btn">Log Fee</button>
+        <div class="ts-hint" id="ts-fee-form-msg">Fees are tracked separately — they never change your payout totals.</div>
+      </div>
+
+      <div class="ts-card fee-card">
+        <div class="ts-card-title">Paste Fees to Import</div>
+        <div class="ts-hint" style="margin-top:0; margin-bottom:10px;">Paste fee rows from your prop firm (date, amount, description, ref number). Auto-detects Reset / Subscription / Activation and skips anything already imported. Set the firm below.</div>
+        <div class="ts-field" style="margin-bottom:10px;">
+          <label for="ts-paste-firm">Prop Firm for these fees</label>
+          <input list="ts-firm-list" id="ts-paste-firm" placeholder="e.g. Topstep, Apex, MFFU" style="width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:9px 10px; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif;">
+        </div>
+        <textarea id="ts-paste-box" placeholder="07/22/2026 01:43 PM&#10;$85.00&#10;Reset&#10;12333006487&#10;07/22/2026 01:42 PM&#10;$49.00&#10;Reset&#10;12332999387" style="width:100%; min-height:120px; background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:10px; border-radius:8px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; resize:vertical;"></textarea>
+        <div id="ts-paste-preview" style="margin-top:10px;"></div>
+        <button class="ts-submit fee-submit" id="ts-paste-parse-btn" style="margin-top:10px;">Preview &amp; Import</button>
+        <div class="ts-hint" id="ts-paste-msg"></div>
+      </div>
+
+      <div class="ts-card fee-card" id="ts-import-card">
+        <div class="ts-collapse-head" data-target="ts-fee-import-body">
+          <div class="ts-card-title">Import Fees <span class="ts-collapse-sub">tap to expand</span></div>
+          <span class="ts-collapse-chevron">&#9654;</span>
+        </div>
+        <div class="ts-collapse-body" id="ts-fee-import-body" hidden>
+          <div class="ts-hint" style="margin-top:0; margin-bottom:12px;" id="ts-import-desc">Bring in your past Topstep fee transactions from the uploaded statement.</div>
+          <button class="ts-btn" id="ts-import-btn" style="width:100%;">Import 218 fees ($21,744.40)</button>
+          <div class="ts-hint" id="ts-import-msg"></div>
+          <button class="ts-btn" id="ts-import2-btn" style="width:100%; margin-top:10px;">Import 2 fees from 7/10 ($98.00)</button>
+          <div class="ts-hint" id="ts-import2-msg"></div>
+          <button class="ts-btn" id="ts-import3-btn" style="width:100%; margin-top:10px;">Import 5 fees from 7/13 ($245.00)</button>
+          <div class="ts-hint" id="ts-import3-msg"></div>
+          <button class="ts-btn" id="ts-import4-btn" style="width:100%; margin-top:10px;">Import 10 fees from 7/17 ($598.00)</button>
+          <div class="ts-hint" id="ts-import4-msg"></div>
+          <button class="ts-btn" id="ts-import5-btn" style="width:100%; margin-top:10px;">Import 6 resets from 7/20 ($438.00)</button>
+          <div class="ts-hint" id="ts-import5-msg"></div>
+          <button class="ts-btn" id="ts-import6-btn" style="width:100%; margin-top:10px;">Import 5 fees from 7/21 ($317.00)</button>
+          <div class="ts-hint" id="ts-import6-msg"></div>
+          <button class="ts-btn" id="ts-import7-btn" style="width:100%; margin-top:10px;">Import 5 resets from 7/22 ($353.00)</button>
+          <div class="ts-hint" id="ts-import7-msg"></div>
+        </div>
+      </div>
+
+      <div class="ts-card" style="border-left:3px solid var(--live);">
+        <div class="ts-card-title">Live Account — Friday Balance</div>
+        <div class="ts-hint" style="margin-top:0; margin-bottom:12px;">Every Friday, log your live brokerage account balance. The tracker computes your weekly change and total live profit automatically.</div>
+        <div class="ts-field">
+          <label for="ts-live-date">Date</label>
+          <input type="date" id="ts-live-date">
+        </div>
+        <div class="ts-field">
+          <label for="ts-live-firm">Account / Broker</label>
+          <input list="ts-live-firm-list" id="ts-live-firm" placeholder="e.g. Topstep Brokerage, Tradovate" style="width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:9px 10px; border-radius:8px; font-size:14px; font-family:'Inter',sans-serif;">
+        </div>
+        <div class="ts-field">
+          <label for="ts-live-balance">Account Balance ($)</label>
+          <input type="number" id="ts-live-balance" step="0.01" placeholder="e.g. 5250.00">
+        </div>
+        <button class="ts-btn" id="ts-live-submit-btn" style="width:100%;">Log Balance</button>
+        <div class="ts-hint" id="ts-live-form-msg"></div>
+
+        <div style="border-top:1px dashed var(--border); margin:16px 0 12px;"></div>
+        <div class="ts-hint" style="margin-top:0; margin-bottom:10px;">Moving your own money in or out? Log it here so it's excluded from trading profit.</div>
+        <div class="ts-field" style="margin-bottom:10px;">
+          <label for="ts-live-move-amount">Amount ($)</label>
+          <input type="number" id="ts-live-move-amount" step="0.01" placeholder="e.g. 2000.00">
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="ts-btn" id="ts-live-deposit-btn" style="flex:1;">＋ Deposit</button>
+          <button class="ts-btn" id="ts-live-withdraw-btn" style="flex:1;">－ Withdraw</button>
+        </div>
+        <div class="ts-hint" id="ts-live-move-msg"></div>
+        <div class="ts-tape" id="ts-live-history" style="margin-top:14px; max-height:260px; overflow-y:auto;"></div>
+        <div class="ts-collapse-head" data-target="ts-live-import-body" style="margin-top:14px;">
+          <div class="ts-card-title" style="margin-bottom:0;">Import Balance <span class="ts-collapse-sub">tap to expand</span></div>
+          <span class="ts-collapse-chevron">&#9654;</span>
+        </div>
+        <div class="ts-collapse-body" id="ts-live-import-body" hidden>
+          <button class="ts-btn" id="ts-live-import-btn" style="width:100%;">Import balance: $1,509.00 (7/10)</button>
+          <div class="ts-hint" id="ts-live-import-msg"></div>
+        </div>
+      </div>
+
+      <div class="ts-card">
+        <div class="ts-card-title">Payout History <span style="color:var(--muted-2); font-weight:400; text-transform:none;" id="ts-payout-history-label">— last 10</span></div>
+        <div class="ts-tape" id="ts-payout-history" style="max-height:420px; overflow-y:auto;"></div>
+        <div class="ts-tape-torn"></div>
+        <button class="ts-btn" id="ts-payout-viewall-btn" style="width:100%; margin-top:12px;">View all payouts</button>
+      </div>
+
+      <div class="ts-card">
+        <div class="ts-card-title">Fee Log <span style="color:var(--muted-2); font-weight:400; text-transform:none;" id="ts-fee-history-label">— last 5</span></div>
+        <div class="ts-tape" id="ts-fee-history" style="max-height:420px; overflow-y:auto;"></div>
+        <div class="ts-tape-torn"></div>
+        <button class="ts-btn" id="ts-fee-viewall-btn" style="width:100%; margin-top:12px;">View all fees</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="ts-mode-toggle">
+        <button class="ts-mode-btn active" id="ts-mode-rolling">Rolling 7 / 30 day</button>
+        <button class="ts-mode-btn" id="ts-mode-calendar">Calendar week / month</button>
+      </div>
+      <div class="ts-color-key">
+        <span><span class="ts-dot" style="background:#77DD3C"></span>Payouts (green)</span>
+        <span><span class="ts-dot" style="background:#E03C31"></span>Fees (red)</span>
+      </div>
+      <div class="ts-charts-row">
+        <div class="ts-chart-card">
+          <div class="ts-chart-title">Weekly</div>
+          <div class="ts-chart-total mono" id="ts-weekly-total">$0.00</div>
+          <div class="ts-chart-wrap" id="ts-chartwrap-weekly"></div>
+          <div class="ts-chart-labels" id="ts-labels-weekly"></div>
+        </div>
+        <div class="ts-chart-card">
+          <div class="ts-chart-title">Monthly</div>
+          <div class="ts-chart-total mono" id="ts-monthly-total">$0.00</div>
+          <div class="ts-chart-wrap" id="ts-chartwrap-monthly"></div>
+          <div class="ts-chart-labels" id="ts-labels-monthly"></div>
+        </div>
+        <div class="ts-chart-card">
+          <div class="ts-chart-title">All-Time</div>
+          <div class="ts-chart-total mono" id="ts-alltime-total">$0.00</div>
+          <div class="ts-chart-wrap" id="ts-chartwrap-alltime"></div>
+          <div class="ts-chart-labels" id="ts-labels-alltime"></div>
+        </div>
+      </div>
+
+      <div class="ts-chart-card" style="margin-top:16px;">
+        <div class="ts-chart-title">Month by Month — Payouts vs Fees</div>
+        <div class="ts-hint" style="margin-top:0; margin-bottom:10px;">Green bars = payouts, red bars = fees, side by side for every month. Hover any bar for exact figures.</div>
+        <div id="ts-monthly-bars" style="width:100%;"></div>
+      </div>
+
+      <div class="ts-chart-card" style="margin-top:16px;">
+        <div class="ts-chart-title">Running Totals — All Fees &amp; Payouts</div>
+        <div class="ts-hint" style="margin-top:0; margin-bottom:10px;">Green line = cumulative payouts, red line = cumulative fees, over time. Hover the dots for exact figures.</div>
+        <div id="ts-cumline" style="width:100%; position:relative;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ts-footer">
+    <div class="ts-footer-left">
+      <span class="ts-status" id="ts-status">Loading saved data…</span>
+    </div>
+    <div class="ts-status">All amounts in local time · Multi–prop-firm tracker</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const root = document.getElementById('topstep-root');
+  const STORAGE_KEY = 'topstep-data';
+  let payouts = [];        // {id, date:'YYYY-MM-DD', amount:number, ts:number}
+  let fees = [];           // {id, date:'YYYY-MM-DD', type:'reset'|'subscription'|'activation', amount:number, ts:number}
+  let importedFeeHistory = false;
+  let importedPayoutHistory = false;
+  let importedPayoutBatch2 = false;
+  let importedPayoutBatch3 = false;
+  let importedFeeBatch2 = false;
+  let importedFeeBatch3 = false;
+  let importedLiveBatch1 = false;
+  let importedFeeBatch4 = false;
+  let importedFeeBatch5 = false;
+  let importedFeeBatch6 = false;
+  let importedFeeBatch7 = false;
+  let showAllPayouts = false;
+  let showAllFees = false;
+  let liveEntries = [];   // {id, date:'YYYY-MM-DD', balance:number, ts:number} \u2014 weekly Friday balance updates
+  let calendarMode = false;
+  let activeFirm = 'all';   // 'all' or a specific firm name
+
+  // Collect all distinct firms seen across payouts, fees, and live accounts
+  function allFirms(){
+    const set = new Set();
+    payouts.forEach(p => { if(p.firm) set.add(p.firm); });
+    fees.forEach(f => { if(f.firm) set.add(f.firm); });
+    liveEntries.forEach(e => { if(e.firm) set.add(e.firm); });
+    return Array.from(set).sort();
+  }
+  // Firm-filtered views used by every render function
+  function fPayouts(){ return activeFirm === 'all' ? payouts : payouts.filter(p => (p.firm||'') === activeFirm); }
+  function fFees(){ return activeFirm === 'all' ? fees : fees.filter(f => (f.firm||'') === activeFirm); }
+  function fLiveEntries(){ return activeFirm === 'all' ? liveEntries : liveEntries.filter(e => (e.firm||'') === activeFirm); }
+
+  // Payout slices: light green shades. Fee slices: dark red shades.
+  const PALETTE = ['#7EE2B8','#9BEACA','#5FD8A6','#B8F1DA','#4CCd97','#D2F7E8','#8FE6C4','#6ADCAE'];
+  const FEE_SLICE_COLORS = { reset: '#8B1E24', subscription: '#A8323A', activation: '#6B1218' };
+  const FEE_COLORS = { reset: '--fee-reset', subscription: '--fee-sub', activation: '--fee-activation' };
+  const FEE_LABELS = { reset: 'Reset Fee', subscription: 'Subscription', activation: 'Activation Fee' };
+  const cssVar = (name) => getComputedStyle(root).getPropertyValue(name).trim();
+
+  // Historical fee transactions parsed from the uploaded TopStep statement (218 entries)
+  const IMPORT_FEES = [{"date":"2026-07-06","type":"activation","ts":1783356480000,"amount":149.0},{"date":"2026-07-01","type":"activation","ts":1782922500000,"amount":149.0},{"date":"2026-07-01","type":"activation","ts":1782922500000,"amount":149.0},{"date":"2026-07-01","type":"activation","ts":1782922440000,"amount":149.0},{"date":"2026-07-01","type":"activation","ts":1782922380000,"amount":149.0},{"date":"2026-06-30","type":"reset","ts":1782859320000,"amount":49.0},{"date":"2026-06-30","type":"subscription","ts":1782834960000,"amount":49.0},{"date":"2026-06-30","type":"subscription","ts":1782830040000,"amount":49.0},{"date":"2026-06-30","type":"subscription","ts":1782829980000,"amount":49.0},{"date":"2026-06-30","type":"subscription","ts":1782829980000,"amount":49.0},{"date":"2026-06-30","type":"subscription","ts":1782829980000,"amount":49.0},{"date":"2026-06-16","type":"activation","ts":1781622180000,"amount":149.0},{"date":"2026-06-16","type":"activation","ts":1781622180000,"amount":149.0},{"date":"2026-06-16","type":"activation","ts":1781622120000,"amount":149.0},{"date":"2026-06-12","type":"reset","ts":1781269140000,"amount":49.0},{"date":"2026-06-12","type":"reset","ts":1781269140000,"amount":49.0},{"date":"2026-06-12","type":"reset","ts":1781269080000,"amount":49.0},{"date":"2026-06-11","type":"subscription","ts":1781218920000,"amount":49.0},{"date":"2026-06-11","type":"subscription","ts":1781218860000,"amount":49.0},{"date":"2026-06-11","type":"subscription","ts":1781218800000,"amount":49.0},{"date":"2026-06-11","type":"reset","ts":1781201820000,"amount":49.0},{"date":"2026-06-11","type":"reset","ts":1781201820000,"amount":49.0},{"date":"2026-06-11","type":"reset","ts":1781201820000,"amount":49.0},{"date":"2026-06-11","type":"reset","ts":1781201040000,"amount":49.0},{"date":"2026-06-11","type":"reset","ts":1781201040000,"amount":49.0},{"date":"2026-06-11","type":"reset","ts":1781200980000,"amount":49.0},{"date":"2026-06-11","type":"subscription","ts":1781191380000,"amount":49.0},{"date":"2026-06-11","type":"subscription","ts":1781191320000,"amount":49.0},{"date":"2026-06-11","type":"subscription","ts":1781191320000,"amount":49.0},{"date":"2026-06-02","type":"activation","ts":1780416000000,"amount":0.0},{"date":"2026-06-02","type":"activation","ts":1780416000000,"amount":0.0},{"date":"2026-06-01","type":"reset","ts":1780322400000,"amount":0.0},{"date":"2026-06-01","type":"reset","ts":1780322340000,"amount":0.0},{"date":"2026-06-01","type":"subscription","ts":1780278060000,"amount":95.0},{"date":"2026-06-01","type":"subscription","ts":1780278060000,"amount":95.0},{"date":"2026-05-30","type":"subscription","ts":1780140060000,"amount":109.0},{"date":"2026-05-30","type":"subscription","ts":1780140060000,"amount":109.0},{"date":"2026-05-29","type":"reset","ts":1780066560000,"amount":229.0},{"date":"2026-05-29","type":"subscription","ts":1780066080000,"amount":229.0},{"date":"2026-05-28","type":"reset","ts":1779997440000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779997440000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779997380000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779997380000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779997380000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779926940000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779926940000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779926820000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779926760000,"amount":95.0},{"date":"2026-05-28","type":"reset","ts":1779926700000,"amount":95.0},{"date":"2026-05-26","type":"reset","ts":1779792960000,"amount":95.0},{"date":"2026-05-26","type":"reset","ts":1779792900000,"amount":95.0},{"date":"2026-05-26","type":"reset","ts":1779792840000,"amount":95.0},{"date":"2026-05-26","type":"reset","ts":1779792780000,"amount":95.0},{"date":"2026-05-26","type":"reset","ts":1779792720000,"amount":95.0},{"date":"2026-05-25","type":"reset","ts":1779719520000,"amount":95.0},{"date":"2026-05-25","type":"reset","ts":1779719460000,"amount":95.0},{"date":"2026-05-25","type":"reset","ts":1779719400000,"amount":95.0},{"date":"2026-05-25","type":"reset","ts":1779719400000,"amount":95.0},{"date":"2026-05-25","type":"reset","ts":1779719340000,"amount":95.0},{"date":"2026-05-25","type":"subscription","ts":1779719340000,"amount":95.0},{"date":"2026-05-21","type":"subscription","ts":1779369240000,"amount":95.0},{"date":"2026-05-21","type":"subscription","ts":1779369180000,"amount":85.0},{"date":"2026-05-21","type":"subscription","ts":1779369060000,"amount":95.0},{"date":"2026-05-21","type":"subscription","ts":1779369000000,"amount":85.0},{"date":"2026-05-20","type":"reset","ts":1779310260000,"amount":85.0},{"date":"2026-05-13","type":"activation","ts":1778689920000,"amount":0.0},{"date":"2026-05-11","type":"subscription","ts":1778508420000,"amount":95.0},{"date":"2026-05-11","type":"subscription","ts":1778508360000,"amount":95.0},{"date":"2026-05-11","type":"subscription","ts":1778508360000,"amount":95.0},{"date":"2026-05-11","type":"subscription","ts":1778508300000,"amount":95.0},{"date":"2026-05-11","type":"subscription","ts":1778463060000,"amount":95.0},{"date":"2026-05-08","type":"subscription","ts":1778249400000,"amount":85.0},{"date":"2026-05-05","type":"activation","ts":1777946520000,"amount":0.0},{"date":"2026-05-04","type":"subscription","ts":1777903260000,"amount":85.0},{"date":"2026-04-30","type":"reset","ts":1777557420000,"amount":95.0},{"date":"2026-04-30","type":"reset","ts":1777557420000,"amount":95.0},{"date":"2026-04-30","type":"reset","ts":1777556160000,"amount":95.0},{"date":"2026-04-30","type":"activation","ts":1777516320000,"amount":0.0},{"date":"2026-04-29","type":"subscription","ts":1777472160000,"amount":95.0},{"date":"2026-04-28","type":"reset","ts":1777383180000,"amount":109.0},{"date":"2026-04-21","type":"reset","ts":1776732180000,"amount":599.0},{"date":"2026-04-21","type":"reset","ts":1776732180000,"amount":599.0},{"date":"2026-04-21","type":"reset","ts":1776732000000,"amount":109.0},{"date":"2026-04-21","type":"reset","ts":1776732000000,"amount":109.0},{"date":"2026-04-20","type":"reset","ts":1776644340000,"amount":109.0},{"date":"2026-04-20","type":"reset","ts":1776644340000,"amount":109.0},{"date":"2026-04-17","type":"subscription","ts":1776436320000,"amount":89.0},{"date":"2026-04-17","type":"subscription","ts":1776436320000,"amount":89.0},{"date":"2026-04-10","type":"reset","ts":1775833920000,"amount":599.0},{"date":"2026-04-10","type":"reset","ts":1775833920000,"amount":599.0},{"date":"2026-04-07","type":"reset","ts":1775530920000,"amount":599.0},{"date":"2026-04-06","type":"subscription","ts":1775490480000,"amount":99.0},{"date":"2026-04-06","type":"reset","ts":1775478960000,"amount":0.0},{"date":"2026-04-06","type":"reset","ts":1775478960000,"amount":0.0},{"date":"2026-04-03","type":"subscription","ts":1775210640000,"amount":109.0},{"date":"2026-04-03","type":"subscription","ts":1775210640000,"amount":109.0},{"date":"2026-04-03","type":"activation","ts":1775183520000,"amount":149.0},{"date":"2026-04-03","type":"activation","ts":1775183520000,"amount":149.0},{"date":"2026-04-02","type":"reset","ts":1775088000000,"amount":49.0},{"date":"2026-04-02","type":"reset","ts":1775088000000,"amount":49.0},{"date":"2026-04-01","type":"subscription","ts":1775075220000,"amount":49.0},{"date":"2026-04-01","type":"subscription","ts":1775075220000,"amount":49.0},{"date":"2026-04-01","type":"subscription","ts":1775075220000,"amount":49.0},{"date":"2026-04-01","type":"subscription","ts":1775075160000,"amount":49.0},{"date":"2026-04-01","type":"subscription","ts":1775075160000,"amount":49.0},{"date":"2026-04-01","type":"reset","ts":1775070660000,"amount":99.0},{"date":"2026-04-01","type":"subscription","ts":1775050800000,"amount":99.0},{"date":"2026-04-01","type":"subscription","ts":1775050620000,"amount":83.0},{"date":"2026-03-31","type":"reset","ts":1774918800000,"amount":109.0},{"date":"2026-03-25","type":"reset","ts":1774451100000,"amount":599.0},{"date":"2026-03-23","type":"activation","ts":1774277220000,"amount":0.0},{"date":"2026-03-20","type":"reset","ts":1774016640000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773960060000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773960060000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773960060000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773960000000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773927480000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773927420000,"amount":109.0},{"date":"2026-03-19","type":"reset","ts":1773927420000,"amount":109.0},{"date":"2026-03-19","type":"subscription","ts":1773927360000,"amount":83.0},{"date":"2026-03-19","type":"subscription","ts":1773888900000,"amount":83.0},{"date":"2026-03-17","type":"reset","ts":1773753840000,"amount":109.0},{"date":"2026-03-17","type":"reset","ts":1773753840000,"amount":109.0},{"date":"2026-03-13","type":"reset","ts":1773399900000,"amount":109.0},{"date":"2026-03-13","type":"reset","ts":1773399840000,"amount":109.0},{"date":"2026-03-13","type":"reset","ts":1773399840000,"amount":109.0},{"date":"2026-03-13","type":"reset","ts":1773399780000,"amount":109.0},{"date":"2026-03-13","type":"reset","ts":1773399720000,"amount":109.0},{"date":"2026-03-12","type":"subscription","ts":1773332580000,"amount":109.0},{"date":"2026-03-12","type":"reset","ts":1773332580000,"amount":49.0},{"date":"2026-03-12","type":"subscription","ts":1773332580000,"amount":109.0},{"date":"2026-03-12","type":"subscription","ts":1773332580000,"amount":109.0},{"date":"2026-03-12","type":"reset","ts":1773332520000,"amount":109.0},{"date":"2026-03-12","type":"reset","ts":1773332520000,"amount":109.0},{"date":"2026-03-10","type":"subscription","ts":1773143100000,"amount":109.0},{"date":"2026-03-10","type":"subscription","ts":1773143040000,"amount":49.0},{"date":"2026-03-10","type":"subscription","ts":1773143040000,"amount":109.0},{"date":"2026-03-05","type":"subscription","ts":1772721720000,"amount":109.0},{"date":"2026-03-05","type":"subscription","ts":1772721720000,"amount":109.0},{"date":"2026-03-04","type":"reset","ts":1772639220000,"amount":109.0},{"date":"2026-03-04","type":"reset","ts":1772639220000,"amount":109.0},{"date":"2026-03-04","type":"reset","ts":1772639220000,"amount":109.0},{"date":"2026-03-03","type":"reset","ts":1772507520000,"amount":109.0},{"date":"2026-03-03","type":"reset","ts":1772507400000,"amount":109.0},{"date":"2026-03-03","type":"reset","ts":1772507340000,"amount":109.0},{"date":"2026-03-01","type":"reset","ts":1772406180000,"amount":109.0},{"date":"2026-03-01","type":"reset","ts":1772406180000,"amount":109.0},{"date":"2026-03-01","type":"reset","ts":1772406180000,"amount":109.0},{"date":"2026-02-20","type":"reset","ts":1771601460000,"amount":109.0},{"date":"2026-02-20","type":"reset","ts":1771601460000,"amount":109.0},{"date":"2026-02-20","type":"reset","ts":1771601460000,"amount":109.0},{"date":"2026-02-20","type":"subscription","ts":1771593180000,"amount":109.0},{"date":"2026-02-20","type":"subscription","ts":1771592820000,"amount":109.0},{"date":"2026-02-20","type":"subscription","ts":1771592760000,"amount":109.0},{"date":"2026-02-13","type":"activation","ts":1770989880000,"amount":0.0},{"date":"2026-02-13","type":"activation","ts":1770989820000,"amount":0.0},{"date":"2026-02-12","type":"reset","ts":1770912540000,"amount":109.0},{"date":"2026-02-12","type":"reset","ts":1770912540000,"amount":109.0},{"date":"2026-02-12","type":"reset","ts":1770903540000,"amount":109.0},{"date":"2026-02-12","type":"reset","ts":1770900840000,"amount":109.0},{"date":"2026-02-11","type":"subscription","ts":1770803340000,"amount":49.0},{"date":"2026-02-06","type":"reset","ts":1770355320000,"amount":109.0},{"date":"2026-02-05","type":"reset","ts":1770331500000,"amount":109.0},{"date":"2026-02-05","type":"subscription","ts":1770258300000,"amount":89.0},{"date":"2026-02-05","type":"subscription","ts":1770258300000,"amount":89.0},{"date":"2026-02-05","type":"subscription","ts":1770258300000,"amount":89.0},{"date":"2026-02-05","type":"subscription","ts":1770258240000,"amount":89.0},{"date":"2026-02-05","type":"subscription","ts":1770258120000,"amount":89.0},{"date":"2026-02-05","type":"subscription","ts":1770257880000,"amount":89.0},{"date":"2026-02-05","type":"subscription","ts":1770257760000,"amount":89.0},{"date":"2026-02-04","type":"activation","ts":1770167040000,"amount":129.0},{"date":"2026-02-04","type":"activation","ts":1770166680000,"amount":129.0},{"date":"2026-02-03","type":"reset","ts":1770145080000,"amount":49.0},{"date":"2026-02-03","type":"reset","ts":1770145020000,"amount":49.0},{"date":"2026-01-29","type":"activation","ts":1769703660000,"amount":129.0},{"date":"2026-01-29","type":"activation","ts":1769703660000,"amount":129.0},{"date":"2026-01-20","type":"reset","ts":1768922760000,"amount":49.0},{"date":"2026-01-20","type":"reset","ts":1768922760000,"amount":49.0},{"date":"2026-01-20","type":"reset","ts":1768879980000,"amount":49.0},{"date":"2026-01-20","type":"reset","ts":1768879980000,"amount":49.0},{"date":"2026-01-15","type":"reset","ts":1768444380000,"amount":49.0},{"date":"2026-01-15","type":"subscription","ts":1768441020000,"amount":49.0},{"date":"2026-01-14","type":"reset","ts":1768398120000,"amount":49.0},{"date":"2026-01-14","type":"subscription","ts":1768371840000,"amount":49.0},{"date":"2026-01-13","type":"reset","ts":1768317000000,"amount":49.0},{"date":"2026-01-13","type":"subscription","ts":1768312860000,"amount":49.0},{"date":"2026-01-13","type":"reset","ts":1768311720000,"amount":49.0},{"date":"2026-01-12","type":"reset","ts":1768260120000,"amount":49.0},{"date":"2026-01-12","type":"reset","ts":1768230900000,"amount":49.0},{"date":"2026-01-07","type":"subscription","ts":1767749280000,"amount":49.0},{"date":"2026-01-02","type":"subscription","ts":1767396060000,"amount":49.0},{"date":"2025-12-26","type":"reset","ts":1766759820000,"amount":499.0},{"date":"2025-12-26","type":"subscription","ts":1766713380000,"amount":149.0},{"date":"2025-12-26","type":"subscription","ts":1766712480000,"amount":49.0},{"date":"2025-12-26","type":"subscription","ts":1766711880000,"amount":49.0},{"date":"2025-12-26","type":"subscription","ts":1766711880000,"amount":49.0},{"date":"2025-12-26","type":"subscription","ts":1766711880000,"amount":49.0},{"date":"2025-12-25","type":"subscription","ts":1766620920000,"amount":113.4},{"date":"2025-12-19","type":"activation","ts":1766157180000,"amount":129.0},{"date":"2025-12-19","type":"activation","ts":1766157180000,"amount":129.0},{"date":"2025-12-17","type":"activation","ts":1765986660000,"amount":129.0},{"date":"2025-12-17","type":"activation","ts":1765986660000,"amount":129.0},{"date":"2025-12-17","type":"activation","ts":1765986600000,"amount":129.0},{"date":"2025-12-16","type":"reset","ts":1765863180000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765863180000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765863180000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765863120000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765863120000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765863120000,"amount":49.0},{"date":"2025-12-16","type":"subscription","ts":1765854420000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765854420000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765854240000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765854120000,"amount":49.0},{"date":"2025-12-16","type":"reset","ts":1765854120000,"amount":49.0},{"date":"2025-12-15","type":"subscription","ts":1765759080000,"amount":49.0},{"date":"2025-12-15","type":"subscription","ts":1765758840000,"amount":49.0},{"date":"2025-12-15","type":"subscription","ts":1765758360000,"amount":49.0},{"date":"2025-12-12","type":"subscription","ts":1765511580000,"amount":49.0}];
+
+  // Historical payouts you provided (2 finalized Express payouts on 2026-06-10)
+  const IMPORT_PAYOUTS = [
+    {"date":"2026-06-10","ref":"EXPRESS-V2-447713-46614578","ts":1781049600000,"amount":1500.00},
+    {"date":"2026-06-10","ref":"EXPRESS-V2-447713-66484188","ts":1781049601000,"amount":1500.00}
+  ];
+
+  // Second batch: 3 Express payouts on 2026-07-09 (two Finalized, one Processing)
+  const IMPORT_PAYOUTS_2 = [
+    {"date":"2026-07-09","ref":"EXPRESS-V2-DLL-447713-57206153","ts":1783555200000,"amount":1560.00},
+    {"date":"2026-07-09","ref":"EXPRESS-V2-DLL-447713-71084391","ts":1783555201000,"amount":1560.00},
+    {"date":"2026-07-09","ref":"EXPRESS-V2-DLL-447713-55475578","ts":1783555202000,"amount":1560.00}
+  ];
+
+  // Funding payout: the $1,509 that seeded the brokerage account (7/9), later
+  // transferred in as a deposit. Kept separate so it's easy to import once.
+  const IMPORT_PAYOUTS_3 = [
+    {"date":"2026-07-09","ref":"EXPRESS-FUNDING-1509","ts":1783598400000,"amount":1509.00}
+  ];
+
+  // Second fee batch: 2 subscription fees on 2026-07-10 (50K Buying Power DLL Standard)
+  const IMPORT_FEES_2 = [
+    {"date":"2026-07-10","type":"subscription","ref":"12284605180","ts":1783642560000,"amount":49.00},
+    {"date":"2026-07-10","type":"subscription","ref":"12284604363","ts":1783642560001,"amount":49.00}
+  ];
+
+  // Live account balance updates (baked in so they import on any device)
+  // The $1,509 that funded the account is a PAYOUT (7/9) transferred in as a
+  // DEPOSIT (7/10) — so it is NOT brokerage trading profit. The 7/10 balance
+  // therefore reflects $1,509 deposited with $0 traded profit so far.
+  const IMPORT_LIVE = [
+    {"kind":"move","date":"2026-07-10","move":1509.00,"ts":1783674000000},
+    {"kind":"balance","date":"2026-07-10","balance":1509.00,"ts":1783674001000}
+  ];
+
+  // Third fee batch: 5 fees on 2026-07-13 (3 subscriptions, 2 resets)
+  const IMPORT_FEES_3 = [
+    {"date":"2026-07-13","type":"subscription","ref":"12296662182","ts":1783944660000,"amount":49.00},
+    {"date":"2026-07-13","type":"subscription","ref":"12296661060","ts":1783944660001,"amount":49.00},
+    {"date":"2026-07-13","type":"subscription","ref":"12296660575","ts":1783944660002,"amount":49.00},
+    {"date":"2026-07-13","type":"reset","ref":"12296659226","ts":1783944600000,"amount":49.00},
+    {"date":"2026-07-13","type":"reset","ref":"12296658065","ts":1783944600001,"amount":49.00}
+  ];
+
+  // Fourth fee batch: 10 fees on 2026-07-17 (3 x $85 subscriptions, 7 x $49 resets)
+  const IMPORT_FEES_4 = [
+    {"date":"2026-07-17","type":"subscription","ref":"12314295875","ts":1784292660000,"amount":85.00},
+    {"date":"2026-07-17","type":"subscription","ref":"12314294427","ts":1784292660001,"amount":85.00},
+    {"date":"2026-07-17","type":"subscription","ref":"12314292265","ts":1784292660002,"amount":85.00},
+    {"date":"2026-07-17","type":"reset","ref":"12314283574","ts":1784292540000,"amount":49.00},
+    {"date":"2026-07-17","type":"reset","ref":"12314280431","ts":1784292480000,"amount":49.00},
+    {"date":"2026-07-17","type":"reset","ref":"12312382900","ts":1784246880000,"amount":49.00},
+    {"date":"2026-07-17","type":"reset","ref":"12312381508","ts":1784246880001,"amount":49.00},
+    {"date":"2026-07-17","type":"reset","ref":"12312379528","ts":1784246820000,"amount":49.00},
+    {"date":"2026-07-17","type":"reset","ref":"12312378141","ts":1784246820001,"amount":49.00},
+    {"date":"2026-07-17","type":"reset","ref":"","ts":1784246760000,"amount":49.00}
+  ];
+
+  // Fifth fee batch: 6 resets on 2026-07-20 (2 x $49, 4 x $85)
+  const IMPORT_FEES_5 = [
+    {"date":"2026-07-20","type":"reset","ref":"12324987231","ts":1784555280000,"amount":49.00},
+    {"date":"2026-07-20","type":"reset","ref":"12324982693","ts":1784555220000,"amount":49.00},
+    {"date":"2026-07-20","type":"reset","ref":"12324979772","ts":1784555160000,"amount":85.00},
+    {"date":"2026-07-20","type":"reset","ref":"12324977379","ts":1784555160001,"amount":85.00},
+    {"date":"2026-07-20","type":"reset","ref":"12324976643","ts":1784555160002,"amount":85.00},
+    {"date":"2026-07-20","type":"reset","ref":"12324975489","ts":1784555100000,"amount":85.00}
+  ];
+
+  // Sixth fee batch: 5 fees on 2026-07-21 (2 x $85 subscriptions, 3 x $49 resets)
+  const IMPORT_FEES_6 = [
+    {"date":"2026-07-21","type":"subscription","ref":"12329106522","ts":1784640840000,"amount":85.00},
+    {"date":"2026-07-21","type":"subscription","ref":"12329104861","ts":1784640780000,"amount":85.00},
+    {"date":"2026-07-21","type":"reset","ref":"12329101342","ts":1784640720000,"amount":49.00},
+    {"date":"2026-07-21","type":"reset","ref":"12329099543","ts":1784640720001,"amount":49.00},
+    {"date":"2026-07-21","type":"reset","ref":"12329097793","ts":1784640660000,"amount":49.00}
+  ];
+
+  // Seventh fee batch: 5 resets on 2026-07-22 (3 x $85, 2 x $49)
+  const IMPORT_FEES_7 = [
+    {"date":"2026-07-22","type":"reset","ref":"12333006487","ts":1784727780000,"amount":85.00},
+    {"date":"2026-07-22","type":"reset","ref":"12333004864","ts":1784727780001,"amount":85.00},
+    {"date":"2026-07-22","type":"reset","ref":"12333003101","ts":1784727780002,"amount":49.00},
+    {"date":"2026-07-22","type":"reset","ref":"12333001005","ts":1784727720000,"amount":85.00},
+    {"date":"2026-07-22","type":"reset","ref":"12332999387","ts":1784727720001,"amount":49.00}
+  ];
+
+  const fmt$ = (n) => {
+    const sign = n < 0 ? '-' : '';
+    return sign + '$' + Math.abs(n).toFixed(2);
+  };
+  const todayLocal = () => {
+    const d = new Date();
+    const off = d.getTimezoneOffset();
+    const local = new Date(d.getTime() - off*60000);
+    return local.toISOString().slice(0,10);
+  };
+  const parseLocalDate = (str) => {
+    const [y,m,d] = str.split('-').map(Number);
+    return new Date(y, m-1, d);
+  };
+  const daysBetween = (a,b) => Math.round((a - b) / 86400000);
+
+  // ---------- persistence ----------
+  async function loadData(){
+    const statusEl = document.getElementById('ts-status');
+    try{
+      const res = await window.storage.get(STORAGE_KEY, false);
+      const parsed = res && res.value ? JSON.parse(res.value) : { payouts: [], fees: [], importedFeeHistory: false, importedPayoutHistory: false };
+      payouts = parsed.payouts || [];
+      fees = parsed.fees || [];
+      importedFeeHistory = !!parsed.importedFeeHistory;
+      importedPayoutHistory = !!parsed.importedPayoutHistory;
+      importedPayoutBatch2 = !!parsed.importedPayoutBatch2;
+      importedPayoutBatch3 = !!parsed.importedPayoutBatch3;
+      importedFeeBatch2 = !!parsed.importedFeeBatch2;
+      importedFeeBatch3 = !!parsed.importedFeeBatch3;
+      liveEntries = parsed.liveEntries || [];
+      importedLiveBatch1 = !!parsed.importedLiveBatch1;
+      importedFeeBatch4 = !!parsed.importedFeeBatch4;
+      importedFeeBatch5 = !!parsed.importedFeeBatch5;
+      importedFeeBatch6 = !!parsed.importedFeeBatch6;
+      importedFeeBatch7 = !!parsed.importedFeeBatch7;
+    }catch(e){
+      payouts = []; fees = []; importedFeeHistory = false; importedPayoutHistory = false; importedPayoutBatch2 = false; importedPayoutBatch3 = false; importedFeeBatch2 = false; importedFeeBatch3 = false; liveEntries = []; importedLiveBatch1 = false; importedFeeBatch4 = false; importedFeeBatch5 = false; importedFeeBatch6 = false; importedFeeBatch7 = false;
+    }
+    statusEl.textContent = 'Loaded · ' + payouts.length + ' payouts, ' + fees.length + ' fees';
+    updateImportButton();
+    updatePayoutImportButton();
+    updatePayoutImport3Button();
+    updateFeeBatch2Button();
+    updateFeeBatch3Button();
+    updateFeeBatch4Button();
+    updateFeeBatch5Button();
+    updateFeeBatch6Button();
+    updateFeeBatch7Button();
+    updateLiveImportButton();
+    renderAll();
+  }
+  async function saveAll(){
+    const statusEl = document.getElementById('ts-status');
+    try{
+      const result = await window.storage.set(STORAGE_KEY, JSON.stringify({ payouts, fees, importedFeeHistory, importedPayoutHistory, importedPayoutBatch2, importedPayoutBatch3, importedFeeBatch2, importedFeeBatch3, liveEntries, importedLiveBatch1, importedFeeBatch4, importedFeeBatch5, importedFeeBatch6, importedFeeBatch7 }), false);
+      statusEl.textContent = result ? 'Saved · ' + payouts.length + ' payouts, ' + fees.length + ' fees' : 'Save failed — will retry on next entry';
+    }catch(e){
+      statusEl.textContent = 'Save failed — check connection';
+    }
+  }
+
+  // ---------- data helpers ----------
+  function dayAggregates(list){
+    const map = {};
+    list.forEach(p => { map[p.date] = (map[p.date]||0) + p.amount; });
+    return map;
+  }
+  function filterRolling(list, days){
+    const now = parseLocalDate(todayLocal());
+    return list.filter(t => {
+      const diff = daysBetween(now, parseLocalDate(t.date));
+      return diff >= 0 && diff < days;
+    });
+  }
+  function filterCalendarWeek(list){
+    const now = parseLocalDate(todayLocal());
+    const dow = (now.getDay() + 6) % 7; // Mon=0
+    const monday = new Date(now); monday.setDate(now.getDate() - dow);
+    return list.filter(t => parseLocalDate(t.date) >= monday);
+  }
+  function filterCalendarMonth(list){
+    const now = parseLocalDate(todayLocal());
+    const first = new Date(now.getFullYear(), now.getMonth(), 1);
+    return list.filter(t => parseLocalDate(t.date) >= first);
+  }
+  function periodList(list, rollingDays){
+    return calendarMode
+      ? (rollingDays === 7 ? filterCalendarWeek(list) : filterCalendarMonth(list))
+      : filterRolling(list, rollingDays);
+  }
+
+  function sumAmt(list){ return list.reduce((s,x)=>s+x.amount,0); }
+  function feeTypeTotals(list){
+    const map = { reset:0, subscription:0, activation:0 };
+    list.forEach(f => { map[f.type] = (map[f.type]||0) + f.amount; });
+    return map;
+  }
+
+  // ---------- rendering ----------
+  function sortedLive(){
+    // Only balance snapshots, oldest first, for the active firm. Legacy entries have no 'kind'.
+    return fLiveEntries().filter(e => e.kind !== 'move')
+      .sort((a,b)=> a.date.localeCompare(b.date) || a.ts - b.ts);
+  }
+  function sortedMoves(){
+    return fLiveEntries().filter(e => e.kind === 'move')
+      .sort((a,b)=> a.date.localeCompare(b.date) || a.ts - b.ts);
+  }
+  function netDeposits(){ return sortedMoves().reduce((a,e)=> a + (e.move||0), 0); }
+  // Net deposits/withdrawals that happened up to and including a given balance entry's date
+  function movesUpTo(date, ts){
+    return sortedMoves().reduce((a,e)=> {
+      const before = e.date < date || (e.date === date && e.ts <= ts);
+      return a + (before ? (e.move||0) : 0);
+    }, 0);
+  }
+  function liveProfitTotal(){
+    const s = sortedLive();
+    if(s.length === 0) return 0;
+    return s[s.length-1].balance - netDeposits();
+  }
+
+  function liveDeltas(){
+    // Per-balance-entry TRUE trading profit change: balance change since the
+    // previous snapshot, minus any deposits/withdrawals that occurred in between.
+    const s = sortedLive();
+    let prevBal = 0, prevMoves = 0;
+    return s.map((e) => {
+      const cumMoves = movesUpTo(e.date, e.ts);
+      const movesInPeriod = cumMoves - prevMoves;
+      const balChange = e.balance - prevBal;
+      const delta = balChange - movesInPeriod;
+      prevBal = e.balance; prevMoves = cumMoves;
+      return { date: e.date, delta };
+    });
+  }
+  function sumDeltas(list){ return list.reduce((a,x)=>a+x.delta,0); }
+
+  function renderTicker(){
+    const deltas = liveDeltas();
+    const weeklyLive = sumDeltas(periodList(deltas, 7));
+    const monthlyLive = sumDeltas(periodList(deltas, 30));
+    const allLive = sumDeltas(deltas);
+    const s = sortedLive();
+    const liveBalance = s.length ? s[s.length-1].balance : 0;
+
+    const weeklyNet = sumAmt(periodList(fPayouts(), 7)) - sumAmt(periodList(fFees(), 7)) + weeklyLive;
+    const monthlyNet = sumAmt(periodList(fPayouts(), 30)) - sumAmt(periodList(fFees(), 30)) + monthlyLive;
+    const allPayouts = sumAmt(fPayouts());
+    const allNet = allPayouts - sumAmt(fFees()) + allLive;
+
+    const cell = (label, value, cls) => `
+      <div class="ts-cell">
+        <div class="ts-cell-label">${label}</div>
+        <div class="ts-cell-value mono ${cls||''}">${value}</div>
+      </div>`;
+
+    const ticker = document.getElementById('ts-ticker');
+    ticker.classList.add('six');
+    ticker.innerHTML =
+      cell('Weekly Net P&amp;L', fmt$(weeklyNet), weeklyNet>=0?'pos':'neg') +
+      cell('Monthly Net P&amp;L', fmt$(monthlyNet), monthlyNet>=0?'pos':'neg') +
+      cell('All-Time Net P&amp;L', fmt$(allNet), allNet>=0?'pos':'neg') +
+      cell('All-Time Payouts', fmt$(allPayouts), allPayouts>0?'pos':'') +
+      cell('Live Balance', s.length ? fmt$(liveBalance) : '\u2014', 'live') +
+      cell('Live Profit', s.length ? fmt$(allLive) : '\u2014', s.length ? (allLive>=0?'pos':'neg') : '');
+  }
+
+  function renderTickerFees(){
+    const weeklyFees = periodList(fFees(), 7);
+    const monthlyFees = periodList(fFees(), 30);
+    const weeklyTotal = sumAmt(weeklyFees);
+    const monthlyTotal = sumAmt(monthlyFees);
+    const allTotal = sumAmt(fFees());
+
+    const cell = (label, value) => `
+      <div class="ts-cell">
+        <div class="ts-cell-label">${label}</div>
+        <div class="ts-cell-value mono fee">${value}</div>
+      </div>`;
+
+    document.getElementById('ts-ticker-fees').innerHTML =
+      cell('Weekly Fees', fmt$(weeklyTotal)) +
+      cell('Monthly Fees', fmt$(monthlyTotal)) +
+      cell('All-Time Fees', fmt$(allTotal)) +
+      cell('Fees Logged', fFees().length);
+  }
+
+  function renderCharts(){
+    const weeklyPayouts = periodList(fPayouts(), 7);
+    const monthlyPayouts = periodList(fPayouts(), 30);
+    const weeklyFees = periodList(fFees(), 7);
+    const monthlyFees = periodList(fFees(), 30);
+    const deltas = liveDeltas();
+    const hasLive = deltas.length > 0;
+
+    renderOneChart('weekly', weeklyPayouts, weeklyFees, sumDeltas(periodList(deltas, 7)), hasLive);
+    renderOneChart('monthly', monthlyPayouts, monthlyFees, sumDeltas(periodList(deltas, 30)), hasLive);
+    renderOneChart('alltime', fPayouts(), fFees(), sumDeltas(deltas), hasLive);
+    renderMonthlyBars();
+    renderCumLine();
+  }
+
+  function renderCumLine(){
+    const el = document.getElementById('ts-cumline');
+    const GREEN = '#77DD3C', RED = '#E03C31';
+
+    if(fPayouts().length === 0 && fFees().length === 0){
+      el.innerHTML = '<div class="ts-empty-state">No data yet — log or import payouts and fees to see running totals.</div>';
+      return;
+    }
+
+    // Build per-date sums, then a merged sorted date axis
+    const pByDate = {}, fByDate = {};
+    fPayouts().forEach(p => { pByDate[p.date] = (pByDate[p.date]||0) + p.amount; });
+    fFees().forEach(f => { fByDate[f.date] = (fByDate[f.date]||0) + f.amount; });
+    const dates = Array.from(new Set([...Object.keys(pByDate), ...Object.keys(fByDate)])).sort();
+
+    // Cumulative series over the shared axis
+    let cp = 0, cf = 0;
+    const pts = dates.map(d => {
+      cp += (pByDate[d] || 0);
+      cf += (fByDate[d] || 0);
+      return { date: d, cumP: cp, cumF: cf, dayP: pByDate[d]||0, dayF: fByDate[d]||0 };
+    });
+
+    const W = 960, H = 520;
+    const padL = 84, padR = 130, padT = 24, padB = 44;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+
+    const liveS = sortedLive();
+    // Live line plots cumulative TRADING PROFIT (deposits/withdrawals excluded),
+    // not raw balance — so moving your own money in/out doesn't fake a spike.
+    const _deltas = liveDeltas();
+    let runProfit = 0;
+    const liveProfitPts = liveS.map((e, i) => {
+      runProfit += (_deltas[i] ? _deltas[i].delta : 0);
+      return { date: e.date, profit: runProfit, balance: e.balance };
+    });
+    const liveMax = liveProfitPts.length ? Math.max(...liveProfitPts.map(e=>e.profit)) : 0;
+    const liveMin = liveProfitPts.length ? Math.min(...liveProfitPts.map(e=>e.profit)) : 0;
+    const maxVal = Math.max(1, cp, cf, liveMax);
+    const mag = Math.pow(10, Math.floor(Math.log10(maxVal)));
+    const axisMax = Math.ceil(maxVal / mag * 2) / 2 * mag;
+    // Extend the axis below zero only if the live profit line goes negative.
+    let axisMin = 0;
+    if(liveMin < 0){
+      const magN = Math.pow(10, Math.floor(Math.log10(Math.abs(liveMin))));
+      let cleanNeg = -(Math.ceil(Math.abs(liveMin) / magN * 2) / 2 * magN);
+      // Ensure the negative band is at least ~18% of the positive range so small
+      // dips against a tall (fees-driven) axis are still clearly visible.
+      const minBand = -axisMax * 0.18;
+      axisMin = Math.min(cleanNeg, minBand);
+    }
+    const axisSpan = (axisMax - axisMin) || 1;
+    const yOf = v => padT + (1 - (v - axisMin)/axisSpan) * plotH;
+
+    const allDatesForSpan = dates.concat(liveS.map(e=>e.date)).sort();
+    const t0 = new Date(allDatesForSpan[0] + 'T00:00:00').getTime();
+    const t1 = new Date(allDatesForSpan[allDatesForSpan.length-1] + 'T00:00:00').getTime();
+    const tSpan = Math.max(1, t1 - t0);
+    const xOf = d => padL + (new Date(d + 'T00:00:00').getTime() - t0) / tSpan * plotW;
+    // Single-date edge case: park it mid-plot
+    const xPos = dates.length === 1 ? (() => padL + plotW/2) : xOf;
+
+    const dateLabel = d => new Date(d + 'T00:00:00').toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+
+    let out = '';
+    // Gridlines across the full range (min to max)
+    const ticks = 5;
+    for(let i=0;i<=ticks;i++){
+      const v = axisMin + (axisSpan) * i / ticks;
+      const y = yOf(v);
+      out += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--border)" stroke-width="1"/>`;
+      const lbl = (v<0?'\u2212':'') + Math.abs(Math.round(v)).toLocaleString();
+      out += `<text x="${padL-10}" y="${y+4}" text-anchor="end" font-size="11.5" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${lbl}</text>`;
+    }
+    // Emphasized zero baseline
+    out += `<line x1="${padL}" y1="${yOf(0)}" x2="${W-padR}" y2="${yOf(0)}" stroke="var(--muted-2)" stroke-width="1.5"/>`;
+
+    // X labels: first, last, and up to 4 between
+    const labelIdx = new Set([0, pts.length-1]);
+    const step = Math.max(1, Math.floor(pts.length / 5));
+    for(let i = step; i < pts.length-1; i += step) labelIdx.add(i);
+    labelIdx.forEach(i => {
+      const x = xPos(pts[i].date);
+      out += `<text x="${x}" y="${H-padB+20}" text-anchor="middle" font-size="11.5" fill="var(--muted)" font-family="Inter,sans-serif">${new Date(pts[i].date+'T00:00:00').toLocaleDateString(undefined,{month:'short', day:'numeric'})}</text>`;
+    });
+
+    // Lines
+    const fLine = pts.map(p => xPos(p.date) + ',' + yOf(p.cumF)).join(' ');
+    const pLine = pts.map(p => xPos(p.date) + ',' + yOf(p.cumP)).join(' ');
+    out += `<polyline points="${fLine}" fill="none" stroke="${RED}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+    out += `<polyline points="${pLine}" fill="none" stroke="${GREEN}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+
+    // Dots with tooltip data
+    pts.forEach(p => {
+      const x = xPos(p.date);
+      out += `<circle cx="${x}" cy="${yOf(p.cumF)}" r="4" fill="${RED}" stroke="var(--panel)" stroke-width="1.5"` +
+        ` data-tip="1" data-kind="Fees to date" data-month="${dateLabel(p.date)}" data-val="${p.cumF}" data-net="${p.cumP - p.cumF}"/>`;
+      out += `<circle cx="${x}" cy="${yOf(p.cumP)}" r="4" fill="${GREEN}" stroke="var(--panel)" stroke-width="1.5"` +
+        ` data-tip="1" data-kind="Payouts to date" data-month="${dateLabel(p.date)}" data-val="${p.cumP}" data-net="${p.cumP - p.cumF}"/>`;
+    });
+
+    // Live account profit line (teal), if any updates logged — deposit-adjusted
+    if(liveProfitPts.length){
+      const TEAL = cssVar('--live') || '#2DD4BF';
+      const LOSS = cssVar('--loss') || '#E2555A';
+      if(liveProfitPts.length > 1){
+        // Draw each segment, colored by whether it sits below zero (red) or not (teal).
+        for(let i = 1; i < liveProfitPts.length; i++){
+          const a = liveProfitPts[i-1], b = liveProfitPts[i];
+          const negSeg = (a.profit < 0 || b.profit < 0);
+          const col = negSeg ? LOSS : TEAL;
+          out += `<line x1="${xPos(a.date)}" y1="${yOf(a.profit)}" x2="${xPos(b.date)}" y2="${yOf(b.profit)}" stroke="${col}" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>`;
+        }
+      }
+      liveProfitPts.forEach(e => {
+        const col = e.profit < 0 ? LOSS : TEAL;
+        out += `<circle cx="${xPos(e.date)}" cy="${yOf(e.profit)}" r="4.5" fill="${col}" stroke="var(--panel)" stroke-width="1.5"` +
+          ` data-tip="1" data-kind="Live balance" data-month="${dateLabel(e.date)}" data-val="${e.balance}" data-net="${e.profit}"/>`;
+      });
+    }
+
+    // Legend
+    const lx = W - padR + 18, ly = padT + plotH/2 - 20;
+    out += `<rect x="${lx}" y="${ly}" width="16" height="16" fill="${GREEN}"/>` +
+           `<text x="${lx+22}" y="${ly+12.5}" font-size="12.5" fill="var(--text)" font-family="Inter,sans-serif">Payouts</text>` +
+           `<rect x="${lx}" y="${ly+26}" width="16" height="16" fill="${RED}"/>` +
+           `<text x="${lx+22}" y="${ly+38.5}" font-size="12.5" fill="var(--text)" font-family="Inter,sans-serif">Fees</text>`;
+    if(liveS.length){
+      out += `<rect x="${lx}" y="${ly+52}" width="16" height="16" fill="var(--live)"/>` +
+             `<text x="${lx+22}" y="${ly+64.5}" font-size="12.5" fill="var(--text)" font-family="Inter,sans-serif">Live Acct</text>`;
+    }
+
+    el.innerHTML =
+      `<svg id="ts-cumline-svg" viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;" role="img" aria-label="Cumulative payouts and fees line chart">` +
+      out +
+      '</svg>' +
+      '<div class="ts-tip" id="ts-cumline-tip"></div>';
+
+    // Tooltip (same pattern as bar chart)
+    const tip = document.getElementById('ts-cumline-tip');
+    const svg = document.getElementById('ts-cumline-svg');
+    svg.addEventListener('mousemove', (ev) => {
+      const t = ev.target;
+      if(t && t.getAttribute && t.getAttribute('data-tip')){
+        const val = parseFloat(t.getAttribute('data-val'));
+        const net = parseFloat(t.getAttribute('data-net'));
+        tip.innerHTML =
+          '<div class="t-title">' + t.getAttribute('data-month') + '</div>' +
+          '<div class="t-row"><span>' + t.getAttribute('data-kind') + ':</span><span class="mono" style="font-weight:600;">' + fmt$(val) + '</span></div>' +
+          '<div class="t-row"><span>' + (t.getAttribute('data-kind') === 'Live balance' ? 'Live profit:' : 'Net to date:') + '</span><span class="mono" style="color:' + (net>=0?'var(--profit)':'var(--loss)') + '">' + fmt$(net) + '</span></div>';
+        tip.classList.add('visible');
+        const rect = el.getBoundingClientRect();
+        let tx = ev.clientX - rect.left + 14;
+        let ty = ev.clientY - rect.top - 10;
+        const tw = tip.offsetWidth || 170;
+        if(tx + tw > rect.width - 8) tx = ev.clientX - rect.left - tw - 14;
+        if(ty < 4) ty = 4;
+        tip.style.left = tx + 'px';
+        tip.style.top = ty + 'px';
+      } else {
+        tip.classList.remove('visible');
+      }
+    });
+    svg.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+  }
+
+  function renderMonthlyBars(){
+    const el = document.getElementById('ts-monthly-bars');
+    // Aggregate by YYYY-MM
+    const months = {};
+    fPayouts().forEach(p => { const m = p.date.slice(0,7); months[m] = months[m] || {p:0,f:0,l:0}; months[m].p += p.amount; });
+    fFees().forEach(f => { const m = f.date.slice(0,7); months[m] = months[m] || {p:0,f:0,l:0}; months[m].f += f.amount; });
+    const monthDeltas = liveDeltas();
+    monthDeltas.forEach(d => { const m = d.date.slice(0,7); months[m] = months[m] || {p:0,f:0,l:0}; months[m].l += d.delta; });
+    const hasLiveBars = monthDeltas.length > 0;
+    const keys = Object.keys(months).sort();
+
+    if(keys.length === 0){
+      el.innerHTML = '<div class="ts-empty-state">No data yet — log or import payouts and fees to see the monthly picture.</div>';
+      return;
+    }
+
+    // Fill gaps so every month between first and last appears
+    const allKeys = [];
+    {
+      let [y,m] = keys[0].split('-').map(Number);
+      const [ey,em] = keys[keys.length-1].split('-').map(Number);
+      while(y < ey || (y === ey && m <= em)){
+        allKeys.push(y + '-' + String(m).padStart(2,'0'));
+        m++; if(m > 12){ m = 1; y++; }
+      }
+    }
+
+    const rows = allKeys.map(k => {
+      const d = months[k] || {p:0,f:0,l:0};
+      return { key: k, payouts: d.p, fees: d.f, live: d.l || 0, net: d.p - d.f + (d.l || 0) };
+    });
+    let running = 0;
+    rows.forEach(r => { running += r.net; r.cum = running; });
+
+    // Grouped bar chart: green payouts vs red fees, side by side (like Revenue vs Expenses)
+    const GREEN = '#77DD3C', RED = '#E03C31';
+    const W = 960, H = 400;
+    const padL = 84, padR = 130, padT = 46, padB = 56;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+
+    const maxVal = Math.max(1, ...rows.map(r=>Math.max(r.payouts, r.fees, Math.abs(r.live))));
+    // Round the axis top up to a clean number
+    const mag = Math.pow(10, Math.floor(Math.log10(maxVal)));
+    const axisMax = Math.ceil(maxVal / mag * 2) / 2 * mag;
+    const yOf = v => padT + (1 - v/axisMax) * plotH;
+
+    const n = rows.length;
+    const slot = plotW / n;
+    const barsPerGroup = hasLiveBars ? 3 : 2;
+    const groupW = Math.min(hasLiveBars ? 84 : 64, slot * 0.68);
+    const barW = groupW / barsPerGroup;
+
+    const monthName = k => {
+      const [y,m] = k.split('-').map(Number);
+      return new Date(y, m-1, 1).toLocaleDateString(undefined, {month:'short', year:'numeric'});
+    };
+    const monthShort = k => {
+      const [y,m] = k.split('-').map(Number);
+      return new Date(y, m-1, 1).toLocaleDateString(undefined, {month:'short'}) + (m === 1 || k === allKeys[0] ? ' \u2019' + String(y).slice(2) : '');
+    };
+
+    // Title
+    let out = `<text x="${padL}" y="24" font-size="15" font-weight="700" fill="var(--text)" font-family="Space Grotesk,sans-serif">Payouts vs Fees</text>`;
+
+    // Gridlines from 0 up
+    const ticks = 6;
+    for(let i=0;i<=ticks;i++){
+      const v = axisMax * i / ticks;
+      const y = yOf(v);
+      out += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="var(--border)" stroke-width="1"/>`;
+      out += `<text x="${padL-10}" y="${y+4}" text-anchor="end" font-size="11.5" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${Math.round(v).toLocaleString()}</text>`;
+    }
+    // Baseline
+    out += `<line x1="${padL}" y1="${yOf(0)}" x2="${W-padR}" y2="${yOf(0)}" stroke="var(--muted-2)" stroke-width="1.5"/>`;
+
+    // Grouped bars
+    rows.forEach((r, i) => {
+      const cx = padL + slot * i + slot/2;
+      const gx = cx - groupW/2;
+      const py = yOf(r.payouts), fy = yOf(r.fees);
+      out += `<rect x="${gx}" y="${py}" width="${barW-2}" height="${Math.max(1.5, yOf(0)-py)}" fill="${GREEN}" stroke="#4EA324" stroke-width="0.75"` +
+        ` data-tip="1" data-kind="Payouts" data-month="${monthName(r.key)}" data-val="${r.payouts}" data-net="${r.net}" data-payouts="${r.payouts}" data-fees="${r.fees}" data-live="${r.live}" data-cum="${r.cum}"/>`;
+      out += `<rect x="${gx+barW}" y="${fy}" width="${barW-2}" height="${Math.max(1.5, yOf(0)-fy)}" fill="${RED}" stroke="#A8231B" stroke-width="0.75"` +
+        ` data-tip="1" data-kind="Fees" data-month="${monthName(r.key)}" data-val="${r.fees}" data-net="${r.net}" data-payouts="${r.payouts}" data-fees="${r.fees}" data-live="${r.live}" data-cum="${r.cum}"/>`;
+      if(hasLiveBars){
+        const lh = Math.max(r.live !== 0 ? 1.5 : 0, Math.abs(r.live)/axisMax * plotH);
+        const ly2 = yOf(0) - lh;
+        const liveNeg = r.live < 0;
+        const liveFill = liveNeg ? RED : 'var(--live)';
+        const liveStroke = liveNeg ? '#A8231B' : '#0F766E';
+        out += `<rect x="${gx+barW*2}" y="${ly2}" width="${barW-2}" height="${lh}" fill="${liveFill}" stroke="${liveStroke}" stroke-width="0.75"` +
+          ` data-tip="1" data-kind="Live change" data-month="${monthName(r.key)}" data-val="${r.live}" data-net="${r.net}" data-payouts="${r.payouts}" data-fees="${r.fees}" data-live="${r.live}" data-cum="${r.cum}"/>`;
+      }
+      // Alternate label rows like the reference image to avoid overlap
+      const labelY = H - padB + (i % 2 === 0 ? 20 : 36);
+      out += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="12.5" fill="var(--muted)" font-family="Inter,sans-serif">${monthShort(r.key)}</text>`;
+    });
+
+    // X axis caption
+    out += `<text x="${padL + plotW/2}" y="${H-6}" text-anchor="middle" font-size="12" font-style="italic" fill="var(--muted-2)" font-family="Inter,sans-serif">Month</text>`;
+
+    // Legend on the right
+    const lx = W - padR + 18, ly = padT + plotH/2 - 20;
+    out += `<rect x="${lx}" y="${ly}" width="16" height="16" fill="${GREEN}"/>` +
+           `<text x="${lx+22}" y="${ly+12.5}" font-size="12.5" fill="var(--text)" font-family="Inter,sans-serif">Payouts</text>` +
+           `<rect x="${lx}" y="${ly+26}" width="16" height="16" fill="${RED}"/>` +
+           `<text x="${lx+22}" y="${ly+38.5}" font-size="12.5" fill="var(--text)" font-family="Inter,sans-serif">Fees</text>`;
+    if(hasLiveBars){
+      out += `<rect x="${lx}" y="${ly+52}" width="16" height="16" fill="var(--live)"/>` +
+             `<text x="${lx+22}" y="${ly+64.5}" font-size="12.5" fill="var(--text)" font-family="Inter,sans-serif">Live \u0394</text>`;
+    }
+
+    el.innerHTML =
+      `<svg id="ts-monthly-svg" viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block;" role="img" aria-label="Payouts vs Fees grouped bar chart by month">` +
+      out +
+      '</svg>' +
+      '<div class="ts-tip" id="ts-monthly-tip"></div>';
+
+    // Speech-bubble style tooltip
+    const tip = document.getElementById('ts-monthly-tip');
+    const svg = document.getElementById('ts-monthly-svg');
+    svg.addEventListener('mousemove', (ev) => {
+      const t = ev.target;
+      if(t && t.getAttribute && t.getAttribute('data-tip')){
+        const kind = t.getAttribute('data-kind');
+        const val = parseFloat(t.getAttribute('data-val'));
+        const net = parseFloat(t.getAttribute('data-net'));
+        const liveAttr = t.getAttribute('data-live');
+        const liveVal = liveAttr !== null ? parseFloat(liveAttr) : 0;
+        tip.innerHTML =
+          '<div class="t-title">' + t.getAttribute('data-month') + '</div>' +
+          '<div class="t-row"><span>' + kind + ':</span><span class="mono" style="font-weight:600;">' + fmt$(val) + '</span></div>' +
+          (liveAttr !== null && liveVal !== 0 && kind !== 'Live change'
+            ? '<div class="t-row"><span>Live \u0394:</span><span class="mono" style="color:var(--live)">' + fmt$(liveVal) + '</span></div>' : '') +
+          '<div class="t-row"><span>Net:</span><span class="mono" style="color:' + (net>=0?'var(--profit)':'var(--loss)') + '">' + fmt$(net) + '</span></div>';
+        tip.classList.add('visible');
+        const rect = el.getBoundingClientRect();
+        let tx = ev.clientX - rect.left + 14;
+        let ty = ev.clientY - rect.top - 10;
+        const tw = tip.offsetWidth || 170;
+        if(tx + tw > rect.width - 8) tx = ev.clientX - rect.left - tw - 14;
+        if(ty < 4) ty = 4;
+        tip.style.left = tx + 'px';
+        tip.style.top = ty + 'px';
+      } else {
+        tip.classList.remove('visible');
+      }
+    });
+    svg.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+  }
+
+  // --- pure SVG donut rendering (no external chart library) ---
+  function donutSlicePath(cx, cy, rOuter, rInner, startAngle, endAngle){
+    // angles in radians, from 12 o'clock, clockwise
+    const sa = startAngle - Math.PI/2, ea = endAngle - Math.PI/2;
+    const x1 = cx + rOuter*Math.cos(sa), y1 = cy + rOuter*Math.sin(sa);
+    const x2 = cx + rOuter*Math.cos(ea), y2 = cy + rOuter*Math.sin(ea);
+    const x3 = cx + rInner*Math.cos(ea), y3 = cy + rInner*Math.sin(ea);
+    const x4 = cx + rInner*Math.cos(sa), y4 = cy + rInner*Math.sin(sa);
+    const large = (endAngle - startAngle) > Math.PI ? 1 : 0;
+    return `M ${x1} ${y1} A ${rOuter} ${rOuter} 0 ${large} 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 ${large} 0 ${x4} ${y4} Z`;
+  }
+
+  function renderOneChart(key, payoutList, feeList, liveDelta, hasLive){
+    const GREEN = '#77DD3C', RED = '#E03C31', TEAL_STROKE = '#0F766E';
+    liveDelta = liveDelta || 0;
+    const showLive = !!hasLive;
+    const agg = dayAggregates(payoutList);
+    const feeTotals = feeTypeTotals(feeList);
+
+    const wrap = document.querySelector('#ts-chartwrap-' + key);
+    const labelsEl = document.getElementById('ts-labels-' + key);
+    const totalEl = document.getElementById('ts-' + key + '-total');
+    const payoutTotal = sumAmt(payoutList);
+    const feeTotal = sumAmt(feeList);
+    const netTotal = payoutTotal - feeTotal + (showLive ? liveDelta : 0);
+    const breakdown = 'payouts ' + fmt$(payoutTotal) + ' \u2212 fees ' + fmt$(feeTotal) +
+      (showLive ? (' ' + (liveDelta >= 0 ? '+' : '\u2212') + ' live ' + fmt$(Math.abs(liveDelta))) : '');
+    totalEl.innerHTML = fmt$(netTotal) + ' <span style="font-size:11px; color:var(--muted-2); font-weight:400;">net</span>' +
+      '<div style="font-size:10.5px; color:var(--muted-2); font-weight:400; margin-top:2px;">' + breakdown + '</div>';
+    totalEl.style.color = netTotal >= 0 ? 'var(--profit)' : 'var(--loss)';
+
+    if(payoutTotal === 0 && feeTotal === 0 && (!showLive || liveDelta === 0)){
+      wrap.innerHTML =
+        '<svg viewBox="0 0 100 100" style="width:100%;height:100%;display:block;">' +
+          '<line x1="10" y1="85" x2="90" y2="85" stroke="var(--border)" stroke-width="2"/>' +
+          '<rect x="28" y="45" width="18" height="40" fill="var(--border)" opacity="0.5"/>' +
+          '<rect x="54" y="60" width="18" height="25" fill="var(--border)" opacity="0.5"/>' +
+        '</svg>' +
+        '<div class="ts-chart-empty-overlay">No payouts, fees, or live<br>changes for this period</div>';
+      labelsEl.innerHTML = '';
+      return;
+    }
+
+    // Grouped bars: green payouts, red fees, and (if tracked) teal live change
+    const W = 220, H = 150;
+    const padL = 8, padR = 8, padT = 14, padB = 22;
+    const plotH = H - padT - padB;
+    const bars = [
+      { label: 'Payouts', value: payoutTotal, fill: GREEN, stroke: '#4EA324', signed: false },
+      { label: 'Fees', value: feeTotal, fill: RED, stroke: '#A8231B', signed: false }
+    ];
+    if(showLive){
+      const liveNeg = liveDelta < 0;
+      bars.push({ label: 'Live', value: liveDelta, fill: liveNeg ? RED : 'var(--live)', stroke: liveNeg ? '#A8231B' : TEAL_STROKE, signed: true });
+    }
+
+    const maxVal = Math.max(1, ...bars.map(b => Math.abs(b.value)));
+    const hOf = v => Math.max(Math.abs(v) > 0 ? 2 : 0, Math.abs(v)/maxVal * plotH);
+    const baseY = H - padB;
+
+    const n = bars.length;
+    const barW = n === 3 ? 42 : 46;
+    const gap = n === 3 ? 18 : 28;
+    const totalW = n * barW + (n-1) * gap;
+    let x = (W - totalW) / 2;
+
+    let svg = `<line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="var(--muted-2)" stroke-width="1.25"/>`;
+    bars.forEach(b => {
+      const h = hOf(b.value);
+      svg += `<rect x="${x}" y="${baseY-h}" width="${barW}" height="${h}" fill="${b.fill}" stroke="${b.stroke}" stroke-width="0.75"><title>${b.label}: ${fmt$(b.value)}</title></rect>`;
+      const signPrefix = b.signed && b.value < 0 ? '\u2212' : '';
+      const labelColor = b.fill;
+      svg += `<text x="${x+barW/2}" y="${baseY-h-5}" text-anchor="middle" font-size="10" fill="${labelColor}" font-family="IBM Plex Mono,monospace">${signPrefix}$${Math.abs(Math.round(b.value)).toLocaleString()}</text>`;
+      svg += `<text x="${x+barW/2}" y="${baseY+14}" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="Inter,sans-serif">${b.label}</text>`;
+      x += barW + gap;
+    });
+
+    wrap.innerHTML = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:100%;display:block;" role="img" aria-label="Payouts, fees, and live account bars">` + svg + '</svg>';
+
+    // Breakdown list below: payout days and fee types (+ live change)
+    const payoutEntries = Object.entries(agg).filter(([,v]) => v > 0).sort((a,b)=> a[0].localeCompare(b[0]));
+    const feeEntries = Object.entries(feeTotals).filter(([,v]) => v > 0);
+    let html = '';
+    if(payoutEntries.length){
+      html += '<div class="ts-legend-heading">Payouts</div>';
+      html += payoutEntries.map(([d,v]) => {
+        const dl = new Date(d + 'T00:00:00').toLocaleDateString(undefined, {month:'short', day:'numeric'});
+        return `<div class="ts-legend-row"><span class="ts-dot" style="background:${GREEN}"></span><span>${dl}</span><span class="ts-legend-amt">${fmt$(v)}</span></div>`;
+      }).join('');
+    }
+    if(feeEntries.length){
+      html += '<div class="ts-legend-heading">Fees</div>';
+      html += feeEntries.map(([type,v]) => {
+        return `<div class="ts-legend-row"><span class="ts-dot" style="background:${RED}"></span><span>${FEE_LABELS[type]}</span><span class="ts-legend-amt">${fmt$(v)}</span></div>`;
+      }).join('');
+    }
+    if(showLive && liveDelta !== 0){
+      html += '<div class="ts-legend-heading">Live Account</div>';
+      html += `<div class="ts-legend-row"><span class="ts-dot" style="background:var(--live)"></span><span>Balance change</span><span class="ts-legend-amt" style="color:${liveDelta>=0?'var(--profit)':'var(--loss)'}">${fmt$(liveDelta)}</span></div>`;
+    }
+    labelsEl.innerHTML = html;
+  }
+
+  function renderPayoutHistory(){
+    const el = document.getElementById('ts-payout-history');
+    const label = document.getElementById('ts-payout-history-label');
+    const btn = document.getElementById('ts-payout-viewall-btn');
+    const fp = fPayouts();
+    if(fp.length === 0){
+      el.innerHTML = '<div class="ts-empty-state">No payouts logged yet' + (activeFirm==='all'?'. Add your first entry above.':' for ' + activeFirm + '.') + '</div>';
+      label.textContent = '';
+      btn.style.display = 'none';
+      return;
+    }
+    const sorted = [...fp].sort((a,b)=> b.ts - a.ts);
+    const list = showAllPayouts ? sorted : sorted.slice(0,10);
+    label.textContent = showAllPayouts ? ('\u2014 all ' + fp.length) : ('\u2014 last ' + Math.min(10, fp.length) + ' of ' + fp.length);
+    btn.style.display = fp.length > 10 ? '' : 'none';
+    btn.textContent = showAllPayouts ? 'Show recent only' : ('View all ' + fp.length + ' payouts');
+    let html = list.map(p => {
+      const dl = new Date(p.date + 'T00:00:00').toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+      const firmTag = (activeFirm === 'all' && p.firm) ? ` <span style="font-size:10px; color:var(--muted-2);">· ${p.firm}</span>` : '';
+      return `<div class="ts-tape-row">
+        <span class="ts-tape-date">${dl}${firmTag}</span>
+        <span class="ts-tape-amt ${p.amount>=0?'pos':'neg'}">${fmt$(p.amount)}</span>
+      </div>`;
+    }).join('');
+    if(showAllPayouts){
+      html += `<div class="ts-tape-row" style="background:var(--panel-2); font-weight:600;">
+        <span class="ts-tape-date" style="color:var(--text);">TOTAL \u2014 ${fp.length} payouts</span>
+        <span class="ts-tape-amt pos">${fmt$(sumAmt(fp))}</span>
+      </div>`;
+    }
+    el.innerHTML = html;
+  }
+
+  function renderFeeHistory(){
+    const el = document.getElementById('ts-fee-history');
+    const label = document.getElementById('ts-fee-history-label');
+    const btn = document.getElementById('ts-fee-viewall-btn');
+    const ff = fFees();
+    if(ff.length === 0){
+      el.innerHTML = '<div class="ts-empty-state">No fees logged yet' + (activeFirm==='all'?'.':' for ' + activeFirm + '.') + '</div>';
+      label.textContent = '';
+      btn.style.display = 'none';
+      return;
+    }
+    const sorted = [...ff].sort((a,b)=> b.ts - a.ts);
+    const list = showAllFees ? sorted : sorted.slice(0,5);
+    label.textContent = showAllFees ? ('\u2014 all ' + ff.length) : ('\u2014 last ' + Math.min(5, ff.length) + ' of ' + ff.length);
+    btn.style.display = ff.length > 5 ? '' : 'none';
+    btn.textContent = showAllFees ? 'Show recent only' : ('View all ' + ff.length + ' fees');
+    let html = list.map(f => {
+      const dl = new Date(f.date + 'T00:00:00').toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+      return `<div class="ts-tape-row fee-row type-${f.type}">
+        <span class="ts-fee-type-label type-${f.type}">${FEE_LABELS[f.type]}</span>
+        <span class="ts-tape-date">${dl}</span>
+        <span class="ts-tape-amt" style="color:var(${FEE_COLORS[f.type]})">${fmt$(f.amount)}</span>
+      </div>`;
+    }).join('');
+    if(showAllFees){
+      const t = feeTypeTotals(ff);
+      html += `<div class="ts-tape-row" style="background:var(--panel-2); font-weight:600;">
+        <span class="ts-tape-date" style="color:var(--text);">TOTAL \u2014 ${ff.length} fees (Reset ${fmt$(t.reset)} \u00b7 Sub ${fmt$(t.subscription)} \u00b7 Act ${fmt$(t.activation)})</span>
+        <span class="ts-tape-amt neg">${fmt$(sumAmt(ff))}</span>
+      </div>`;
+    }
+    el.innerHTML = html;
+  }
+
+  function renderTickerLive(){
+    const el = document.getElementById('ts-ticker-live');
+    const s = sortedLive();
+    if(s.length === 0){ el.style.display = 'none'; return; }
+    el.style.display = '';
+    const last = s[s.length-1];
+    const prev = s.length > 1 ? s[s.length-2] : null;
+    // Latest-period true profit change (excludes deposits/withdrawals in the period)
+    const deltas = liveDeltas();
+    const weekDelta = deltas.length ? deltas[deltas.length-1].delta : 0;
+    const liveProfit = liveProfitTotal();      // latest balance − net deposits
+    const deposits = netDeposits();
+    const netIncl = sumAmt(payouts) - sumAmt(fees) + liveProfit;
+
+    const cell = (label, value, cls) => `
+      <div class="ts-cell">
+        <div class="ts-cell-label">${label}</div>
+        <div class="ts-cell-value mono ${cls||''}">${value}</div>
+      </div>`;
+
+    let cells =
+      cell('Live Acct Balance', fmt$(last.balance), '') +
+      cell('Latest Period \u0394', fmt$(weekDelta), weekDelta>=0?'pos':'neg') +
+      cell('Live Profit', fmt$(liveProfit), liveProfit>=0?'pos':'neg');
+    if(deposits !== 0){
+      cells += cell('Net Deposits (excl.)', fmt$(deposits), '');
+    } else {
+      cells += cell('Balance Updates', s.length, '');
+    }
+    cells += cell('Net P&amp;L incl. Live', fmt$(netIncl), netIncl>=0?'pos':'neg');
+
+    el.innerHTML = cells;
+  }
+
+  function renderLiveHistory(){
+    const el = document.getElementById('ts-live-history');
+    if(liveEntries.length === 0){
+      el.innerHTML = '<div class="ts-empty-state">No balance updates yet. Log your first one this Friday.</div>';
+      return;
+    }
+    const s = sortedLive();
+    const deltas = liveDeltas(); // aligned to s order
+    // Build balance rows with true profit delta
+    const balRows = s.map((e, i) => ({
+      type: 'balance', date: e.date, ts: e.ts, balance: e.balance,
+      profitDelta: deltas[i] ? deltas[i].delta : 0
+    }));
+    // Build move rows
+    const moveRows = sortedMoves().map(e => ({
+      type: 'move', date: e.date, ts: e.ts, move: e.move
+    }));
+    // Merge, newest first
+    const all = balRows.concat(moveRows).sort((a,b)=> b.date.localeCompare(a.date) || b.ts - a.ts);
+
+    el.innerHTML = all.map(e => {
+      const dl = new Date(e.date + 'T00:00:00').toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+      if(e.type === 'move'){
+        const isDep = e.move > 0;
+        const tag = `<span style="font-size:10px; padding:2px 7px; border-radius:20px; background:var(--panel-2); color:var(--muted); white-space:nowrap;">${isDep?'Deposit':'Withdrawal'}</span>`;
+        return `<div class="ts-tape-row" style="grid-template-columns:auto 1fr auto; gap:10px; align-items:center; border-left:3px solid var(--muted-2);">
+          ${tag}
+          <span class="ts-tape-date">${dl}</span>
+          <span class="mono" style="font-size:12.5px; color:var(--muted);">${isDep?'+':'\u2212'}${fmt$(Math.abs(e.move))}</span>
+        </div>`;
+      }
+      const pd = e.profitDelta;
+      const deltaStr = `<span class="mono" style="font-size:11.5px; color:${pd>=0?'var(--profit)':'var(--loss)'}">${pd>=0?'+':''}${fmt$(pd)}</span>`;
+      return `<div class="ts-tape-row" style="grid-template-columns:1fr auto auto; gap:12px; align-items:center;">
+        <span class="ts-tape-date">${dl}</span>
+        ${deltaStr}
+        <span class="ts-tape-amt" style="color:var(--live)">${fmt$(e.balance)}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // ---- Firm filter bar + datalists ----
+  function renderFirmBar(){
+    const firms = allFirms();
+    // Populate the datalists so the input fields autocomplete known firms
+    const opts = firms.map(f => `<option value="${f}">`).join('');
+    const dl = document.getElementById('ts-firm-list');
+    const dll = document.getElementById('ts-live-firm-list');
+    if(dl) dl.innerHTML = opts;
+    if(dll) dll.innerHTML = opts;
+
+    const bar = document.getElementById('ts-firm-filter-bar');
+    const chips = document.getElementById('ts-firm-chips');
+    if(!bar || !chips) return;
+    // Only show the filter once there's more than one firm to switch between
+    if(firms.length < 2){ bar.style.display = 'none'; activeFirm = 'all'; return; }
+    bar.style.display = 'flex';
+
+    if(activeFirm !== 'all' && !firms.includes(activeFirm)) activeFirm = 'all';
+    const chip = (label, val) => {
+      const on = activeFirm === val;
+      return `<button class="ts-btn ts-firm-chip" data-firm="${val}" style="padding:6px 12px; ${on?'border-color:var(--accent); background:var(--accent-soft); color:var(--accent);':''}">${label}</button>`;
+    };
+    chips.innerHTML = chip('All firms', 'all') + firms.map(f => chip(f, f)).join('');
+    chips.querySelectorAll('.ts-firm-chip').forEach(b => {
+      b.addEventListener('click', () => {
+        activeFirm = b.getAttribute('data-firm');
+        renderAll();
+      });
+    });
+  }
+
+  function renderAll(){
+    renderFirmBar();
+    renderTicker();
+    renderTickerFees();
+    renderTickerLive();
+    renderCharts();
+    renderPayoutHistory();
+    renderFeeHistory();
+    renderLiveHistory();
+    renderTaxSummary();
+  }
+
+  // ---- Tax Summary ----
+  function availableYears(){
+    const yrs = new Set();
+    payouts.forEach(p => yrs.add(p.date.slice(0,4)));
+    fees.forEach(f => yrs.add(f.date.slice(0,4)));
+    liveEntries.forEach(e => yrs.add(e.date.slice(0,4)));
+    if(yrs.size === 0) yrs.add(String(new Date().getFullYear()));
+    return Array.from(yrs).sort().reverse();
+  }
+
+  function taxFiguresForYear(year){
+    const yp = fPayouts().filter(p => p.date.slice(0,4) === year);
+    const yf = fFees().filter(f => f.date.slice(0,4) === year);
+    const payoutIncome = yp.reduce((s,p)=>s+p.amount,0);
+    const feeByType = { reset:0, subscription:0, activation:0 };
+    yf.forEach(f => { feeByType[f.type] = (feeByType[f.type]||0) + f.amount; });
+    const totalFees = feeByType.reset + feeByType.subscription + feeByType.activation;
+    const netSE = payoutIncome - totalFees;
+
+    // Live account §1256 net gain/loss for the year: sum of true profit deltas
+    // whose balance-entry date falls in this year.
+    const deltas = liveDeltas();
+    const liveS = sortedLive();
+    let live1256 = 0;
+    liveS.forEach((e, i) => {
+      if(e.date.slice(0,4) === year && deltas[i]) live1256 += deltas[i].delta;
+    });
+
+    return { year, payoutIncome, feeByType, totalFees, netSE, live1256,
+             payoutCount: yp.length, feeCount: yf.length };
+  }
+
+  function renderTaxSummary(){
+    const sel = document.getElementById('ts-tax-year');
+    const content = document.getElementById('ts-tax-content');
+    if(!sel || !content) return;
+
+    const years = availableYears();
+    const prevChoice = sel.value;
+    sel.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join('');
+    if(prevChoice && years.includes(prevChoice)) sel.value = prevChoice;
+    const year = sel.value || years[0];
+
+    const t = taxFiguresForYear(year);
+
+    const row = (label, value, opts) => {
+      opts = opts || {};
+      const color = opts.color || 'var(--text)';
+      const weight = opts.bold ? '600' : '400';
+      const border = opts.top ? 'border-top:1px solid var(--border); padding-top:8px; margin-top:4px;' : '';
+      const indent = opts.indent ? 'padding-left:16px; color:var(--muted);' : '';
+      return `<div style="display:flex; justify-content:space-between; padding:4px 0; ${border}">
+        <span style="${indent} font-weight:${weight};">${label}</span>
+        <span class="mono" style="color:${color}; font-weight:${weight};">${value}</span>
+      </div>`;
+    };
+
+    let html = '<div style="font-size:13.5px; max-width:560px;">';
+    html += '<div class="ts-legend-heading" style="margin-bottom:6px;">Prop-firm income (likely 1099-NEC, Schedule C)</div>';
+    html += row('Payout income (' + t.payoutCount + ' payouts)', fmt$(t.payoutIncome), {color:'var(--profit)'});
+    html += row('Less: Reset fees', '\u2212' + fmt$(t.feeByType.reset), {indent:true});
+    html += row('Less: Subscription fees', '\u2212' + fmt$(t.feeByType.subscription), {indent:true});
+    html += row('Less: Activation fees', '\u2212' + fmt$(t.feeByType.activation), {indent:true});
+    html += row('Total deductible fees (' + t.feeCount + ')', '\u2212' + fmt$(t.totalFees), {color:'var(--loss)'});
+    html += row('Net self-employment income', fmt$(t.netSE), {bold:true, top:true, color: t.netSE>=0?'var(--profit)':'var(--loss)'});
+
+    html += '<div class="ts-legend-heading" style="margin:16px 0 6px;">Live futures account (likely IRC §1256, Form 6781)</div>';
+    html += row('Net trading gain/loss for ' + year, fmt$(t.live1256), {bold:true, color: t.live1256>=0?'var(--profit)':'var(--loss)'});
+    if(t.live1256 !== 0){
+      html += row('\u2014 60% long-term portion', fmt$(t.live1256 * 0.6), {indent:true});
+      html += row('\u2014 40% short-term portion', fmt$(t.live1256 * 0.4), {indent:true});
+    }
+
+    const grand = t.netSE + t.live1256;
+    html += row('Combined taxable result (' + year + ')', fmt$(grand), {bold:true, top:true, color: grand>=0?'var(--profit)':'var(--loss)'});
+    html += '</div>';
+    content.innerHTML = html;
+  }
+
+  // ---------- events ----------
+  document.getElementById('ts-payout-date').value = todayLocal();
+  document.getElementById('ts-fee-date').value = todayLocal();
+
+  document.getElementById('ts-payout-submit-btn').addEventListener('click', async () => {
+    const dateEl = document.getElementById('ts-payout-date');
+    const amtEl = document.getElementById('ts-payout-amount');
+    const msg = document.getElementById('ts-payout-form-msg');
+
+    const date = dateEl.value || todayLocal();
+    const amount = parseFloat(amtEl.value);
+
+    if(isNaN(amount)){
+      msg.textContent = 'Enter a valid payout amount before logging.';
+      msg.style.color = 'var(--loss)';
+      return;
+    }
+    const pFirm = (document.getElementById('ts-payout-firm').value || '').trim();
+    payouts.push({ id: Date.now()+'-'+Math.random().toString(36).slice(2), date, firm: pFirm, amount, ts: Date.now() });
+    amtEl.value = '';
+    dateEl.value = todayLocal();
+    msg.textContent = 'Payout logged. Date auto-fills to today after each entry.';
+    msg.style.color = 'var(--muted-2)';
+    renderAll();
+    await saveAll();
+  });
+
+  // ---- Paste-to-import parser ----
+  // Handles TopStep's format: a date line, a $amount line, a description line
+  // (Reset / Subscription... / Activation...), and usually a numeric ref line.
+  function parsePastedFees(text){
+    const rawLines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+    const results = [];
+    const problems = [];
+    let currentDate = null;
+    const dateRe = /(\d{1,2})\/(\d{1,2})\/(\d{4})/;
+    const amtRe = /^\$\s*([\d,]+\.\d{2})\s*$/;  // require leading $ and cents, e.g. $85.00
+
+    for(let i = 0; i < rawLines.length; i++){
+      const line = rawLines[i];
+      const dm = line.match(dateRe);
+      if(dm){
+        const mm = String(dm[1]).padStart(2,'0');
+        const dd = String(dm[2]).padStart(2,'0');
+        currentDate = dm[3] + '-' + mm + '-' + dd;
+      }
+      const am = line.match(amtRe);
+      if(am){
+        const amount = parseFloat(am[1].replace(/,/g,''));
+        if(isNaN(amount) || amount <= 0) continue;
+        let desc = '';
+        let ref = '';
+        for(let j = i+1; j < Math.min(i+4, rawLines.length); j++){
+          const nxt = rawLines[j];
+          if(amtRe.test(nxt)) continue;
+          if(dateRe.test(nxt)) break;
+          if(/^\d{6,}$/.test(nxt)){ ref = nxt; continue; }
+          if(!desc){ desc = nxt; }
+        }
+        const d = desc.toLowerCase();
+        let type = null;
+        if(d.includes('reset')) type = 'reset';
+        else if(d.includes('subscription') || d.includes('sub ')) type = 'subscription';
+        else if(d.includes('activation')) type = 'activation';
+        if(!type){
+          problems.push('Could not classify: "' + (desc || ('$'+amount)) + '"');
+          continue;
+        }
+        if(!currentDate){
+          problems.push('No date found for a $' + amount.toFixed(2) + ' ' + type + ' entry');
+          continue;
+        }
+        results.push({ date: currentDate, type, amount, ref });
+      }
+    }
+    return { results, problems };
+  }
+
+  function signatureOf(f){ return f.date + '|' + f.type + '|' + f.amount.toFixed(2) + '|' + (f.ref||''); }
+
+  let pastedParsed = null;
+
+  document.getElementById('ts-paste-parse-btn').addEventListener('click', async () => {
+    const box = document.getElementById('ts-paste-box');
+    const msg = document.getElementById('ts-paste-msg');
+    const preview = document.getElementById('ts-paste-preview');
+    const btn = document.getElementById('ts-paste-parse-btn');
+
+    if(pastedParsed && pastedParsed.toImport && pastedParsed.toImport.length){
+      const now = Date.now();
+      const pasteFirm = (document.getElementById('ts-paste-firm').value || '').trim();
+      const imported = pastedParsed.toImport.map((r, i) => ({
+        id: 'paste-' + now + '-' + i,
+        firm: pasteFirm,
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: now + i
+      }));
+      fees = fees.concat(imported);
+      renderAll();
+      await saveAll();
+      msg.textContent = 'Imported ' + imported.length + ' fee' + (imported.length===1?'':'s') + '. ' + fmt$(imported.reduce((s,x)=>s+x.amount,0)) + ' added.';
+      msg.style.color = 'var(--profit)';
+      preview.innerHTML = '';
+      box.value = '';
+      pastedParsed = null;
+      btn.textContent = 'Preview & Import';
+      return;
+    }
+
+    const text = box.value;
+    if(!text.trim()){
+      msg.textContent = 'Paste some fee rows first.';
+      msg.style.color = 'var(--loss)';
+      return;
+    }
+    const parsed = parsePastedFees(text);
+    const results = parsed.results, problems = parsed.problems;
+    if(results.length === 0){
+      msg.textContent = 'No fees recognized. ' + (problems[0] || 'Check the format.');
+      msg.style.color = 'var(--loss)';
+      preview.innerHTML = '';
+      return;
+    }
+
+    const existingSigs = new Set(fees.map(signatureOf));
+    const seenInPaste = new Set();
+    const toImport = [];
+    let dupCount = 0;
+    results.forEach(r => {
+      const sig = signatureOf(r);
+      if(existingSigs.has(sig) || seenInPaste.has(sig)){ dupCount++; return; }
+      seenInPaste.add(sig);
+      toImport.push(r);
+    });
+
+    pastedParsed = { toImport: toImport };
+
+    const total = toImport.reduce((s,x)=>s+x.amount,0);
+    const byType = { reset:0, subscription:0, activation:0 };
+    toImport.forEach(r => byType[r.type]++);
+    let html = '<div style="background:var(--panel-2); border:1px solid var(--border); border-radius:8px; padding:10px; font-size:12px;">';
+    html += '<div style="font-weight:600; margin-bottom:6px;">Found ' + toImport.length + ' new fee' + (toImport.length===1?'':'s') + ' \u2014 ' + fmt$(total) + '</div>';
+    html += '<div style="color:var(--muted); margin-bottom:8px;">' +
+      byType.reset + ' reset \u00b7 ' + byType.subscription + ' subscription \u00b7 ' + byType.activation + ' activation' +
+      (dupCount ? ' \u00b7 <span style="color:var(--fee-reset);">' + dupCount + ' duplicate' + (dupCount===1?'':'s') + ' skipped</span>' : '') +
+      '</div>';
+    html += toImport.slice(0,12).map(r => {
+      const dl = new Date(r.date + 'T00:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});
+      return '<div style="display:flex; justify-content:space-between; padding:2px 0;"><span>' + dl + ' \u00b7 ' + FEE_LABELS[r.type] + '</span><span class="mono">' + fmt$(r.amount) + '</span></div>';
+    }).join('');
+    if(toImport.length > 12) html += '<div style="color:var(--muted-2); margin-top:4px;">+ ' + (toImport.length-12) + ' more\u2026</div>';
+    if(problems.length){
+      html += '<div style="color:var(--fee-reset); margin-top:8px; font-size:11px;">' + problems.length + ' line' + (problems.length===1?'':'s') + ' skipped: ' + problems[0] + (problems.length>1?' \u2026':'') + '</div>';
+    }
+    html += '</div>';
+    preview.innerHTML = html;
+
+    if(toImport.length === 0){
+      msg.textContent = 'All ' + dupCount + ' pasted fees are already imported \u2014 nothing new to add.';
+      msg.style.color = 'var(--muted-2)';
+      pastedParsed = null;
+      btn.textContent = 'Preview & Import';
+    } else {
+      msg.textContent = 'Review above, then click again to confirm import.';
+      msg.style.color = 'var(--muted-2)';
+      btn.textContent = 'Confirm import of ' + toImport.length + ' fee' + (toImport.length===1?'':'s');
+    }
+  });
+
+  document.getElementById('ts-paste-box').addEventListener('input', () => {
+    if(pastedParsed){
+      pastedParsed = null;
+      document.getElementById('ts-paste-preview').innerHTML = '';
+      document.getElementById('ts-paste-parse-btn').textContent = 'Preview & Import';
+      document.getElementById('ts-paste-msg').textContent = '';
+    }
+  });
+
+  document.getElementById('ts-fee-submit-btn').addEventListener('click', async () => {
+    const dateEl = document.getElementById('ts-fee-date');
+    const typeEl = document.getElementById('ts-fee-type');
+    const amtEl = document.getElementById('ts-fee-amount');
+    const msg = document.getElementById('ts-fee-form-msg');
+
+    const date = dateEl.value || todayLocal();
+    const type = typeEl.value;
+    const amount = parseFloat(amtEl.value);
+
+    if(isNaN(amount) || amount <= 0){
+      msg.textContent = 'Enter a fee amount greater than $0 before logging.';
+      msg.style.color = 'var(--loss)';
+      return;
+    }
+    const feeFirm = (document.getElementById('ts-fee-firm').value || '').trim();
+    fees.push({ id: Date.now()+'-'+Math.random().toString(36).slice(2), date, firm: feeFirm, type, amount, ts: Date.now() });
+    amtEl.value = '';
+    dateEl.value = todayLocal();
+    msg.textContent = 'Fee logged. It won\'t affect your payout totals — only the fee views above.';
+    msg.style.color = 'var(--muted-2)';
+    renderAll();
+    await saveAll();
+  });
+
+  function updatePayoutImportButton(){
+    const btn = document.getElementById('ts-payout-import-btn');
+    const msg = document.getElementById('ts-payout-import-msg');
+    btn.style.borderColor = '';
+    if(importedPayoutHistory){
+      btn.disabled = true;
+      btn.textContent = 'Payouts imported ✓';
+      btn.style.opacity = '0.6';
+      btn.style.cursor = 'default';
+      msg.textContent = '2 historical payouts already imported.';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Import 2 payouts ($3,000.00)';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      msg.textContent = '';
+    }
+    const btn2 = document.getElementById('ts-payout-import2-btn');
+    const msg2 = document.getElementById('ts-payout-import2-msg');
+    if(importedPayoutBatch2){
+      btn2.disabled = true;
+      btn2.textContent = '7/9 payouts imported \u2713';
+      btn2.style.opacity = '0.6';
+      btn2.style.cursor = 'default';
+      msg2.textContent = '3 payouts from 7/9 already imported.';
+    } else {
+      btn2.disabled = false;
+      btn2.textContent = 'Import 3 payouts from 7/9 ($4,680.00)';
+      btn2.style.opacity = '1';
+      btn2.style.cursor = 'pointer';
+      msg2.textContent = '';
+    }
+  }
+
+  function updateFeeBatch2Button(){
+    const btn2 = document.getElementById('ts-import2-btn');
+    const msg2 = document.getElementById('ts-import2-msg');
+    if(importedFeeBatch2){
+      btn2.disabled = true;
+      btn2.textContent = '7/10 fees imported \u2713';
+      btn2.style.opacity = '0.6';
+      btn2.style.cursor = 'default';
+      msg2.textContent = '2 subscription fees from 7/10 already imported.';
+    } else {
+      btn2.disabled = false;
+      btn2.textContent = 'Import 2 fees from 7/10 ($98.00)';
+      btn2.style.opacity = '1';
+      btn2.style.cursor = 'pointer';
+      msg2.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import2-btn').addEventListener('click', async () => {
+    if(importedFeeBatch2) return;
+    try{
+      const imported = IMPORT_FEES_2.map((r, i) => ({
+        id: 'import-fee2-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeBatch2 = true;
+      updateFeeBatch2Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import2-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import2-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updateFeeBatch3Button(){
+    const btn3 = document.getElementById('ts-import3-btn');
+    const msg3 = document.getElementById('ts-import3-msg');
+    if(importedFeeBatch3){
+      btn3.disabled = true;
+      btn3.textContent = '7/13 fees imported \u2713';
+      btn3.style.opacity = '0.6';
+      btn3.style.cursor = 'default';
+      msg3.textContent = '5 fees from 7/13 already imported.';
+    } else {
+      btn3.disabled = false;
+      btn3.textContent = 'Import 5 fees from 7/13 ($245.00)';
+      btn3.style.opacity = '1';
+      btn3.style.cursor = 'pointer';
+      msg3.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import3-btn').addEventListener('click', async () => {
+    if(importedFeeBatch3) return;
+    try{
+      const imported = IMPORT_FEES_3.map((r, i) => ({
+        id: 'import-fee3-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeBatch3 = true;
+      updateFeeBatch3Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import3-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import3-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updateFeeBatch4Button(){
+    const btn4 = document.getElementById('ts-import4-btn');
+    const msg4 = document.getElementById('ts-import4-msg');
+    if(importedFeeBatch4){
+      btn4.disabled = true;
+      btn4.textContent = '7/17 fees imported \u2713';
+      btn4.style.opacity = '0.6';
+      btn4.style.cursor = 'default';
+      msg4.textContent = '10 fees from 7/17 already imported.';
+    } else {
+      btn4.disabled = false;
+      btn4.textContent = 'Import 10 fees from 7/17 ($598.00)';
+      btn4.style.opacity = '1';
+      btn4.style.cursor = 'pointer';
+      msg4.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import4-btn').addEventListener('click', async () => {
+    if(importedFeeBatch4) return;
+    try{
+      const imported = IMPORT_FEES_4.map((r, i) => ({
+        id: 'import-fee4-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeBatch4 = true;
+      updateFeeBatch4Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import4-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import4-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updateFeeBatch5Button(){
+    const btn5 = document.getElementById('ts-import5-btn');
+    const msg5 = document.getElementById('ts-import5-msg');
+    if(importedFeeBatch5){
+      btn5.disabled = true;
+      btn5.textContent = '7/20 resets imported \u2713';
+      btn5.style.opacity = '0.6';
+      btn5.style.cursor = 'default';
+      msg5.textContent = '6 resets from 7/20 already imported.';
+    } else {
+      btn5.disabled = false;
+      btn5.textContent = 'Import 6 resets from 7/20 ($438.00)';
+      btn5.style.opacity = '1';
+      btn5.style.cursor = 'pointer';
+      msg5.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import5-btn').addEventListener('click', async () => {
+    if(importedFeeBatch5) return;
+    try{
+      const imported = IMPORT_FEES_5.map((r, i) => ({
+        id: 'import-fee5-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeBatch5 = true;
+      updateFeeBatch5Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import5-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import5-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updateFeeBatch6Button(){
+    const btn6 = document.getElementById('ts-import6-btn');
+    const msg6 = document.getElementById('ts-import6-msg');
+    if(importedFeeBatch6){
+      btn6.disabled = true;
+      btn6.textContent = '7/21 fees imported \u2713';
+      btn6.style.opacity = '0.6';
+      btn6.style.cursor = 'default';
+      msg6.textContent = '5 fees from 7/21 already imported.';
+    } else {
+      btn6.disabled = false;
+      btn6.textContent = 'Import 5 fees from 7/21 ($317.00)';
+      btn6.style.opacity = '1';
+      btn6.style.cursor = 'pointer';
+      msg6.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import6-btn').addEventListener('click', async () => {
+    if(importedFeeBatch6) return;
+    try{
+      const imported = IMPORT_FEES_6.map((r, i) => ({
+        id: 'import-fee6-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeBatch6 = true;
+      updateFeeBatch6Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import6-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import6-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updateFeeBatch7Button(){
+    const btn7 = document.getElementById('ts-import7-btn');
+    const msg7 = document.getElementById('ts-import7-msg');
+    if(importedFeeBatch7){
+      btn7.disabled = true;
+      btn7.textContent = '7/22 resets imported \u2713';
+      btn7.style.opacity = '0.6';
+      btn7.style.cursor = 'default';
+      msg7.textContent = '5 resets from 7/22 already imported.';
+    } else {
+      btn7.disabled = false;
+      btn7.textContent = 'Import 5 resets from 7/22 ($353.00)';
+      btn7.style.opacity = '1';
+      btn7.style.cursor = 'pointer';
+      msg7.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import7-btn').addEventListener('click', async () => {
+    if(importedFeeBatch7) return;
+    try{
+      const imported = IMPORT_FEES_7.map((r, i) => ({
+        id: 'import-fee7-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeBatch7 = true;
+      updateFeeBatch7Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import7-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import7-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updatePayoutImport3Button(){
+    const btn = document.getElementById('ts-payout-import3-btn');
+    const msg = document.getElementById('ts-payout-import3-msg');
+    if(importedPayoutBatch3){
+      btn.disabled = true;
+      btn.textContent = 'Funding payout imported \u2713';
+      btn.style.opacity = '0.6';
+      btn.style.cursor = 'default';
+      msg.textContent = '$1,509 funding payout from 7/9 already imported.';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Import funding payout: $1,509 (7/9)';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      msg.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-payout-import3-btn').addEventListener('click', async () => {
+    if(importedPayoutBatch3) return;
+    try{
+      const imported = IMPORT_PAYOUTS_3.map((r, i) => ({
+        id: 'import-payout3-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      payouts = payouts.concat(imported);
+      importedPayoutBatch3 = true;
+      updatePayoutImport3Button();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-payout-import3-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-payout-import3-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  document.getElementById('ts-payout-import2-btn').addEventListener('click', async () => {
+    if(importedPayoutBatch2) return;
+    try{
+      const imported = IMPORT_PAYOUTS_2.map((r, i) => ({
+        id: 'import-payout2-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      payouts = payouts.concat(imported);
+      importedPayoutBatch2 = true;
+      updatePayoutImportButton();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-payout-import2-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-payout-import2-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  document.getElementById('ts-payout-import-btn').addEventListener('click', async () => {
+    if(importedPayoutHistory) return;
+    try{
+      const imported = IMPORT_PAYOUTS.map((r, i) => ({
+        id: 'import-payout-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      payouts = payouts.concat(imported);
+      importedPayoutHistory = true;
+      updatePayoutImportButton();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-payout-import-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-payout-import-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  function updateImportButton(){
+    const btn = document.getElementById('ts-import-btn');
+    const msg = document.getElementById('ts-import-msg');
+    btn.style.borderColor = '';
+    if(importedFeeHistory){
+      btn.disabled = true;
+      btn.textContent = 'History imported ✓';
+      btn.style.opacity = '0.6';
+      btn.style.cursor = 'default';
+      msg.textContent = '218 historical fees already imported.';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Import 218 fees ($21,744.40)';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      msg.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-import-btn').addEventListener('click', async () => {
+    if(importedFeeHistory) return;
+    try{
+      const imported = IMPORT_FEES.map((r, i) => ({
+        id: 'import-' + i,
+        firm: 'Topstep',
+        date: r.date,
+        type: r.type,
+        amount: r.amount,
+        ts: r.ts
+      }));
+      fees = fees.concat(imported);
+      importedFeeHistory = true;
+      updateImportButton();
+      renderAll();
+      await saveAll();
+    }catch(e){
+      document.getElementById('ts-import-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-import-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  document.getElementById('ts-live-date').value = todayLocal();
+
+  function updateLiveImportButton(){
+    const btn = document.getElementById('ts-live-import-btn');
+    const msg = document.getElementById('ts-live-import-msg');
+    if(importedLiveBatch1){
+      btn.disabled = false;   // keep enabled so it can re-sync if the model changes
+      btn.textContent = 'Re-sync funding: $1,509 deposit (7/10)';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      msg.textContent = 'Funding recorded as a $1,509 deposit — $0 trading profit. Click to re-sync if needed.';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Import funding: $1,509 deposit (7/10)';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+      msg.textContent = '';
+    }
+  }
+
+  document.getElementById('ts-live-import-btn').addEventListener('click', async () => {
+    try{
+      // Remove any prior baked-in funding entries (old single-balance format
+      // or a previous re-sync) so this can be clicked safely more than once.
+      liveEntries = liveEntries.filter(e => !(e.id && String(e.id).startsWith('import-live-')));
+      const imported = IMPORT_LIVE.map((r, i) => ({
+        id: 'import-live-' + i,
+        firm: 'Topstep',
+        kind: r.kind || 'balance',
+        date: r.date,
+        balance: r.balance,
+        move: r.move,
+        ts: r.ts
+      }));
+      liveEntries = liveEntries.concat(imported);
+      importedLiveBatch1 = true;
+      updateLiveImportButton();
+      renderAll();
+      await saveAll();
+      document.getElementById('ts-live-import-msg').textContent = 'Synced: $1,509 logged as a deposit, live trading profit starts at $0.';
+      document.getElementById('ts-live-import-msg').style.color = 'var(--profit)';
+    }catch(e){
+      document.getElementById('ts-live-import-msg').textContent = 'Import error: ' + e.message;
+      document.getElementById('ts-live-import-msg').style.color = 'var(--loss)';
+    }
+  });
+
+  document.getElementById('ts-live-submit-btn').addEventListener('click', async () => {
+    const dateEl = document.getElementById('ts-live-date');
+    const balEl = document.getElementById('ts-live-balance');
+    const msg = document.getElementById('ts-live-form-msg');
+    const date = dateEl.value || todayLocal();
+    const balance = parseFloat(balEl.value);
+    if(isNaN(balance)){
+      msg.textContent = 'Enter your current account balance before logging.';
+      msg.style.color = 'var(--loss)';
+      return;
+    }
+    const dow = new Date(date + 'T00:00:00').getDay();
+    const lFirm = (document.getElementById('ts-live-firm').value || '').trim();
+    liveEntries.push({ id: 'live-' + Date.now(), kind: 'balance', date, firm: lFirm, balance, ts: Date.now() });
+    msg.textContent = 'Balance logged' + (dow === 5 ? '.' : ' (heads up: that date isn\u2019t a Friday).');
+    msg.style.color = 'var(--muted-2)';
+    balEl.value = '';
+    dateEl.value = todayLocal();
+    renderAll();
+    await saveAll();
+  });
+
+  async function logMove(sign){
+    const dateEl = document.getElementById('ts-live-date');
+    const amtEl = document.getElementById('ts-live-move-amount');
+    const msg = document.getElementById('ts-live-move-msg');
+    const date = dateEl.value || todayLocal();
+    const amt = parseFloat(amtEl.value);
+    if(isNaN(amt) || amt <= 0){
+      msg.textContent = 'Enter an amount above $0 first.';
+      msg.style.color = 'var(--loss)';
+      return;
+    }
+    const move = sign * Math.abs(amt);
+    const mFirm = (document.getElementById('ts-live-firm').value || '').trim();
+    liveEntries.push({ id: 'move-' + Date.now(), kind: 'move', date, firm: mFirm, move, ts: Date.now() });
+    msg.textContent = (sign > 0 ? 'Deposit' : 'Withdrawal') + ' of ' + fmt$(Math.abs(amt)) + ' logged \u2014 excluded from trading profit.';
+    msg.style.color = 'var(--muted-2)';
+    amtEl.value = '';
+    dateEl.value = todayLocal();
+    renderAll();
+    await saveAll();
+  }
+  document.getElementById('ts-live-deposit-btn').addEventListener('click', () => logMove(1));
+  document.getElementById('ts-live-withdraw-btn').addEventListener('click', () => logMove(-1));
+
+  // Tax summary: year selector + CPA CSV export
+  document.getElementById('ts-tax-year').addEventListener('change', renderTaxSummary);
+
+  document.getElementById('ts-tax-export-btn').addEventListener('click', () => {
+    const year = document.getElementById('ts-tax-year').value;
+    const t = taxFiguresForYear(year);
+    const rows = [];
+    rows.push(['DayTrade Dashboard — Tax Export for ' + year + (activeFirm!=='all' ? ' — ' + activeFirm : ' — All firms')].join(','));
+    rows.push([]);
+    rows.push(['SUMMARY'].join(','));
+    rows.push(['Category','Amount']);
+    rows.push(['Payout income (1099-NEC / Schedule C)', t.payoutIncome.toFixed(2)].join(','));
+    rows.push(['Reset fees (deductible)', (-t.feeByType.reset).toFixed(2)].join(','));
+    rows.push(['Subscription fees (deductible)', (-t.feeByType.subscription).toFixed(2)].join(','));
+    rows.push(['Activation fees (deductible)', (-t.feeByType.activation).toFixed(2)].join(','));
+    rows.push(['Total deductible fees', (-t.totalFees).toFixed(2)].join(','));
+    rows.push(['Net self-employment income', t.netSE.toFixed(2)].join(','));
+    rows.push(['Live futures net gain/loss (IRC 1256 / Form 6781)', t.live1256.toFixed(2)].join(','));
+    rows.push(['  60% long-term portion', (t.live1256*0.6).toFixed(2)].join(','));
+    rows.push(['  40% short-term portion', (t.live1256*0.4).toFixed(2)].join(','));
+    rows.push(['Combined taxable result', (t.netSE + t.live1256).toFixed(2)].join(','));
+    rows.push([]);
+    rows.push(['ITEMIZED DETAIL'].join(','));
+    rows.push(['Type','Firm','Date','Amount','Fee Type / Note','Reference']);
+
+    const inYear = d => d.slice(0,4) === year;
+    [...fPayouts()].filter(p=>inYear(p.date)).sort((a,b)=>a.date.localeCompare(b.date)).forEach(p => {
+      rows.push(['Payout', p.firm||'', p.date, p.amount.toFixed(2), 'Prop firm payout income', ''].join(','));
+    });
+    [...fFees()].filter(f=>inYear(f.date)).sort((a,b)=>a.date.localeCompare(b.date)).forEach(f => {
+      rows.push(['Fee (deductible)', f.firm||'', f.date, (-f.amount).toFixed(2), FEE_LABELS[f.type], f.ref||''].join(','));
+    });
+    // Live account: balance snapshots + moves + computed profit deltas
+    const deltas = liveDeltas();
+    sortedLive().forEach((e,i) => {
+      if(inYear(e.date)) rows.push(['Live balance', e.firm||'', e.date, e.balance.toFixed(2), 'Trading profit this period: ' + (deltas[i]?deltas[i].delta.toFixed(2):'0.00'), ''].join(','));
+    });
+    sortedMoves().forEach(e => {
+      if(inYear(e.date)) rows.push([e.move>0?'Deposit':'Withdrawal', e.firm||'', e.date, e.move.toFixed(2), 'Capital transfer (not income)', ''].join(','));
+    });
+
+    const blob = new Blob([rows.join('\n')], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'daytrade-tax-' + year + '.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // Collapsible import sections
+  document.querySelectorAll('.ts-collapse-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const body = document.getElementById(head.getAttribute('data-target'));
+      if(!body) return;
+      const isHidden = body.hasAttribute('hidden');
+      if(isHidden){ body.removeAttribute('hidden'); head.classList.add('open'); }
+      else { body.setAttribute('hidden', ''); head.classList.remove('open'); }
+      const sub = head.querySelector('.ts-collapse-sub');
+      if(sub) sub.textContent = isHidden ? 'tap to collapse' : 'tap to expand';
+    });
+  });
+
+  document.getElementById('ts-payout-viewall-btn').addEventListener('click', () => {
+    showAllPayouts = !showAllPayouts;
+    renderPayoutHistory();
+  });
+  document.getElementById('ts-fee-viewall-btn').addEventListener('click', () => {
+    showAllFees = !showAllFees;
+    renderFeeHistory();
+  });
+
+  function applyTheme(theme){
+    root.dataset.theme = theme;
+    const btn = document.getElementById('ts-theme-toggle');
+    btn.innerHTML = theme === 'dark' ? '\u2600\uFE0F Light Mode' : '\uD83C\uDF19 Dark Mode';
+    renderCharts();
+  }
+  document.getElementById('ts-theme-toggle').addEventListener('click', async () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try{ await window.storage.set('topstep-theme', next, false); }catch(e){}
+  });
+  // Restore saved theme preference on load
+  (async () => {
+    try{
+      const saved = await window.storage.get('topstep-theme', false);
+      if(saved && saved.value && (saved.value === 'dark' || saved.value === 'light')){
+        applyTheme(saved.value);
+      }
+    }catch(e){ /* no saved theme yet */ }
+  })();
+
+  document.getElementById('ts-mode-rolling').addEventListener('click', (e) => {
+    calendarMode = false;
+    e.target.classList.add('active');
+    document.getElementById('ts-mode-calendar').classList.remove('active');
+    renderTicker(); renderTickerFees(); renderCharts();
+  });
+  document.getElementById('ts-mode-calendar').addEventListener('click', (e) => {
+    calendarMode = true;
+    e.target.classList.add('active');
+    document.getElementById('ts-mode-rolling').classList.remove('active');
+    renderTicker(); renderTickerFees(); renderCharts();
+  });
+
+  document.getElementById('ts-export-btn').addEventListener('click', () => {
+    if(fPayouts().length === 0 && fFees().length === 0){ return; }
+    const rows = [['Type','Date','Amount','Fee Type'].join(',')];
+    [...payouts].sort((a,b)=> a.ts - b.ts).forEach(p => {
+      rows.push(['Payout', p.date, p.amount.toFixed(2), ''].join(','));
+    });
+    [...fees].sort((a,b)=> a.ts - b.ts).forEach(f => {
+      rows.push(['Fee', f.date, f.amount.toFixed(2), FEE_LABELS[f.type]].join(','));
+    });
+    sortedLive().forEach(e => {
+      rows.push(['Live Balance', e.date, e.balance.toFixed(2), ''].join(','));
+    });
+    const blob = new Blob([rows.join('\n')], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'daytrade-ledger.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  let resetArmed = false;
+  let resetArmTimer = null;
+
+  document.getElementById('ts-reset-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('ts-reset-btn');
+    if(!resetArmed){
+      resetArmed = true;
+      btn.textContent = 'Click again to confirm reset';
+      btn.style.borderColor = 'var(--loss)';
+      clearTimeout(resetArmTimer);
+      resetArmTimer = setTimeout(() => {
+        resetArmed = false;
+        btn.textContent = 'Reset';
+        btn.style.borderColor = '';
+      }, 5000);
+      return;
+    }
+    clearTimeout(resetArmTimer);
+    resetArmed = false;
+    btn.textContent = 'Reset';
+    btn.style.borderColor = '';
+    payouts = []; fees = []; liveEntries = []; importedFeeHistory = false; importedPayoutHistory = false; importedPayoutBatch2 = false; importedPayoutBatch3 = false; importedFeeBatch2 = false; importedFeeBatch3 = false; importedLiveBatch1 = false; importedFeeBatch4 = false; importedFeeBatch5 = false; importedFeeBatch6 = false; importedFeeBatch7 = false;
+    try{ await window.storage.delete(STORAGE_KEY, false); }catch(e){}
+    updateImportButton();
+    updatePayoutImportButton();
+    updatePayoutImport3Button();
+    updateFeeBatch2Button();
+    updateFeeBatch3Button();
+    updateFeeBatch4Button();
+    updateFeeBatch5Button();
+    updateFeeBatch6Button();
+    updateFeeBatch7Button();
+    updateLiveImportButton();
+    renderAll();
+    document.getElementById('ts-status').textContent = 'All data cleared';
+  });
+
+  loadData();
+})();
+</script>
+
+</body>
+</html>
